@@ -9,7 +9,7 @@
         <title>Hôtel Neptune</title>
         <link rel="stylesheet" type="text/css" href="css/styles.min.css">
         <link rel="stylesheet" type="text/css" href="css/overrides.css">
-        <link rel="stylesheet" href="<?php echo RACINE_SITE; ?>">
+        <link rel="stylesheet" href="">
         
         <script>
             (function(h,o,t,j,a,r){
