@@ -9,7 +9,7 @@
         <nav id="footer-menu">
             <ul >                          
                 <li  data-element-id="12">
-                    <a href="file:///C:/Users/Z30-B/Documents/GitHub/Projet-PHP/index.html">
+                    <a href="Projet-PHP/index.html">
                     Connexion
                     </a>
                 </li>                            
