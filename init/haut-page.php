@@ -4,9 +4,10 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'> <base href="https://www.hotelvistabella.com/">
+        <meta name="viewport" content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'> <base href="https://www.hotelvistabella.com/"> 
         <link type="image/ico" href="https://www.hotel-neptune.fr/images/favicon.png" rel="shortcut icon">
         <title>Hôtel Neptune</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="css/styles.min.css">
         <link rel="stylesheet" type="text/css" href="css/overrides.css">
         <link rel="stylesheet" href="">
@@ -46,11 +47,6 @@
                                         Bienvenue
                                         </a>
                                     </li>
-                                    <li  data-element-id="1.2">
-                                        <a href="https://www.google.fr/maps/place/H%C3%B4tel+Neptune/@43.545289,3.973821,17z/data=!3m1!4b1!4m2!3m1!1s0x12b6bb3f6f499f5b:0xa4273d08bd579ecb?hl=fr">
-                                        Localisation
-                                        </a>
-                                    </li>
                                     <li  data-element-id="1.3">
                                         <a href="https://www.hotel-neptune.fr/hotel-the-originals-montpellier/photos-le-neptune.php">
                                         Photos & Vidéos    
@@ -64,52 +60,11 @@
                                 </ul>
                             </li>                            
                             <li  data-element-id="2">
-                                <a href="https://www.hotel-neptune.fr/hotel-montpellier-plage/chambres-carnon.php">
+                                <a href="<?php echo RACINE_SITE; ?>chambres.php">
                                 Chambres
                                 </a>
                             </li>                            
-                            <li  data-element-id="3">
-                                <a href="https://www.letrident-restaurant.com/">
-                                Restaurants
-                                </a>
-                                <ul>                      
-                                    <li  data-element-id="3.408">
-                                        <a href="https://www.letrident-restaurant.com/">
-                                        Le Trident    
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>                                                                  
-                            <li  data-element-id="5">
-                                <a href="https://www.hotel-neptune.fr/salle-arena-montpellier/concerts-evenements.php">
-                                    Evénements    
-                                </a>
-                            </li>                            
-                            <li  data-element-id="7">
-                                <a href="https://www.hotel-neptune.fr/salle-arena-montpellier/concerts-evenements.php">
-                                    Environnement    
-                                </a>
-                                <ul>             
-                            <li  data-element-id="7.1">
-                                <a href="https://www.hotel-neptune.fr/sports-montpellier/loisirs-herault.php">
-                                    Sports & Loisirs    
-                                </a>
-                            </li>
-                            <li  data-element-id="7.3">
-                                <a href="https://www.hotel-neptune.fr/seminaire-montpellier/location-salle.php">
-                                    Groupes & Séminaires    
-                                </a>
-                            </li>
-                            <li  data-element-id="7.2">
-                                <a href="https://www.hotel-neptune.fr/palavas-grande-motte/sejour-herault.php">
-                                    Visites de la région    
-                                </a>
-                            </li>
-                            <li  data-element-id="7.1001">
-                                <a href="https://www.hdmedia.fr/visite-virtuelle/hd/cbpldpvif-neptune.html">
-                                    Visite Virtuelle
-                                </a>
-                            </li>
+                                                     
                         </ul>
                     </li>                            
                     <li  data-element-id="6">
@@ -134,7 +89,7 @@
             <nav id="main-menu-mobile">
                 <ul class="sf-menu">                    
                     <li  data-element-id="1">
-                        <a href="https://www.hotel-neptune.fr/">
+                        <a href="<?php echo RACINE_SITE; ?>index.php">
                             L'Hôtel
                         </a>
                         <ul>                
@@ -161,7 +116,7 @@
                         </ul>
                     </li>                            
                     <li  data-element-id="2">
-                        <a href="https://www.hotel-neptune.fr/hotel-montpellier-plage/chambres-carnon.php">
+                        <a href="<?php echo RACINE_SITE; ?>chambres.php">
                         Chambres
                         </a>
                     </li>                            
