@@ -9,6 +9,7 @@
         <title>Hôtel Neptune</title>
         <link rel="stylesheet" type="text/css" href="css/styles.min.css">
         <link rel="stylesheet" type="text/css" href="css/overrides.css">
+        <link rel="stylesheet" href="<?php echo RACINE_SITE; ?>">
         
         <script>
             (function(h,o,t,j,a,r){
@@ -30,13 +31,13 @@
         <header>
             <div id="header-absolute">
                 <div class="container">
-                    <a class="logo" href="./index.html">
+                    <a class="logo" href="./index.php">
                         <img src="https://www.hotel-neptune.fr/images/logos/theoriginals_s.png" alt="Hôtel Neptune à Carnon" style="float:left;width:200px;height:40px;margin-left: -50px;">
                     </a>
                     <nav id="main-menu">
                         <ul class="sf-menu">                    
                             <li  data-element-id="1">
-                                <a href="https://www.hotel-neptune.fr/">
+                                <a href="<?php echo RACINE_SITE; ?>index.php">
                                     L'Hôtel
                                 </a>
                                 <ul>                
