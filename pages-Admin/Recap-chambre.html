@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <title>Récap</title>
+</head>
+<body>
+    <form action="">
+        <div class="row">
+            <h1 style=" font-size: 20px; color: gray;">Trier par</h1>
+            <div class="form-group col-md-2">
+                <label for="inputState">Capacité</label>
+                <select id="inputState" class="form-control">
+                  <option selected>...</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputState">Etage</label>
+                <select id="inputState" class="form-control">
+                    <option selected>...</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+            </div>
+                
+            <div class="form-group col-md-2">
+                    <label for="inputState">Exposition</label>
+                    <select id="inputState" class="form-control">
+                        <option selected>...</option>
+                        <option value="Port">Port</option>
+                        <option value="Rempart">Rempart</option>
+                    </select>
+            </div>
+        </div>
+        
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group mr-2" role="group" aria-label="First group">
+              <button type="button" class="btn btn-secondary">Ok</button>
+            </div>
+            <div class="btn-group mr-2" role="group" aria-label="Second group">
+              <button type="button" class="btn btn-secondary">Annuler</button>
+            </div>
+          </div>
+    </form>
+   
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Capacité</th>
+            <th scope="col">Exposition</th>
+            <th scope="col">Douche</th>
+            <th scope="col">Etage</th>
+            <th scope="col">Tarif</th>
+            <th scope="col">Modification</th>
+            <th scope="col">Suppression</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>2</td>
+            <td>Port</td>
+            <td>0</td>
+            <td>1</td>
+            <td>30€</td>
+            <td><a href=""><img style="width: 50px;" src="https://cdn.icon-icons.com/icons2/1518/PNG/512/pencilmono_105944.png" alt=""></a></td>
+            <td><a href=""><img style="width: 50px;" src="https://cdn.icon-icons.com/icons2/1518/PNG/512/crossmono_105892.png" alt=""></a></td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>4</td>
+            <td>Rempart</td>
+            <td>0</td>
+            <td>2</td>
+            <td>30€</td>
+            <td><a href=""><img style="width: 50px;" src="https://cdn.icon-icons.com/icons2/1518/PNG/512/pencilmono_105944.png" alt=""></a></td>
+            <td><a href=""><img style="width: 50px;" src="https://cdn.icon-icons.com/icons2/1518/PNG/512/crossmono_105892.png" alt=""></a></td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>2</td>
+            <td>Port</td>
+            <td>1</td>
+            <td>3</td>
+            <td>30€</td>
+            <td><a href=""><img style="width: 50px;" src="https://cdn.icon-icons.com/icons2/1518/PNG/512/pencilmono_105944.png" alt=""></a></td>
+            <td><a href=""><img style="width: 50px;" src="https://cdn.icon-icons.com/icons2/1518/PNG/512/crossmono_105892.png" alt=""></a></td>
+          </tr>
+        </tbody>
+      </table>
+      <a href=""><img src="/image/Cross.png" alt=""></a>
+</body>
+</html>
