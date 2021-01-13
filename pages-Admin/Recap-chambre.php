@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <title>Récap</title>
-</head>
-<body>
-    <form action="">
+<?php
+require_once("init/init.php");
+require_once("init/haut-page.php");
+?>
+ <form action="">
         <div class="row">
             <h1 style=" font-size: 20px; color: gray;">Trier par</h1>
             <div class="form-group col-md-2">
@@ -96,5 +90,6 @@
           </tr>
         </tbody>
       </table>
-</body>
-</html>
+<?php 
+require_once("init/bas-page.php");
+?>
