@@ -133,7 +133,8 @@ h1 {
 .main-agileinfo {
   width: 35%;
   margin: 3em auto;
-  background: #020457;
+  border-radius: 15%;
+  background: #add3eb;
   background-size: cover;
 }
 
@@ -204,9 +205,9 @@ input.email, input.text.w3lpass, input.text1 {
 input[type="submit"] {
   font-size: .9em;
   color: #fff;
-  background: #3a00a5;
+  background: #8eb2cf;
   outline: none;
-  border: 1px solid #020457;
+  border: 1px solid #8eb2cf;
   cursor: pointer;
   padding: 0.9em;
   -webkit-appearance: none;
@@ -221,7 +222,7 @@ input[type="submit"]:hover {
   -o-transition: .5s all;
   -ms-transition: .5s all;
   transition: .5s all;
-  background:  #3a00a5;
+  background:  #8eb2cf;
 }
 
 .agileits-top p {
@@ -241,7 +242,7 @@ input[type="submit"]:hover {
 }
 
 .agileits-top p a:hover {
-  color:  #3a00a5;
+  color:  #8eb2cf;
 }
 
 /*-- //main --*/
@@ -255,7 +256,7 @@ input[type="submit"]:hover {
 }
 
 input.checkbox {
-  background: #3a00a5;
+  background: #8eb2cf;
   cursor: pointer;
   width: 1.2em;
   height: 1.2em;

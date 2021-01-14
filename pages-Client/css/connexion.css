@@ -133,7 +133,8 @@ h1 {
 .main-agileinfo {
   width: 35%;
   margin: 3em auto;
-  background: #020457;
+  border-radius: 15%;
+  background: #add3eb;
   background-size: cover;
 }
 
