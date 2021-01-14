@@ -1,20 +1,19 @@
+<?php
+require_once("../init/init.php");
+require_once("../init/haut-page.php");
+?>
 
-<!DOCTYPE html>
-<html>
-<head>
-<title>Inscription</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- Custom Theme files -->
 <link href="./css/inscription.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/business-casual.min.css" rel="stylesheet">
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <!-- //Custom Theme files -->
 <!-- web font -->
 <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
 <!-- //web font -->
-</head>
-<body>
-	!-- main -->
+
+<!-- main -->
 	<div class="main-w3layouts wrapper">
 		<h1>Formulaire d'inscription</h1>
 		<div class="main-agileinfo">
@@ -34,12 +33,14 @@
 					</div>
 					<input type="submit" value="S'INSCRIRE">
 				</form>
-				<p>Vous avez déjà un compte? <a href="./connexion.html">Connectez-vous maintenant!</a></p>
+				<p>Vous avez déjà un compte? <a href="./connexion.php">Connectez-vous maintenant!</a></p>
 			</div>
 		</div>
 
 
 	</div>
-	<!-- //main -->
-</body>
-</html>
+    <!-- //main -->
+    
+<?php 
+require_once("../init/bas-page.php");
+?>
