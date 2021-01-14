@@ -3,7 +3,7 @@ require_once("../init/init.php");
 require_once("../init/haut-page-admin.php");
 ?>
 
-<div style="color:white;">
+<div style="background-color:white;">
 <form action="">
         <div class="row">
             <h2 style=" font-size: 20px; color: gray;">Trier par</h2>
@@ -34,10 +34,10 @@ require_once("../init/haut-page-admin.php");
                         <option value="Rempart">Rempart</option>
                     </select>
             </div>
-        </div>
+        
         <br>
 
-        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups" style="justify-content:space-around;">
             <div class="btn-group mr-2" role="group" aria-label="First group">
               <button type="button" class="btn btn-secondary">Ok</button>
             </div>
@@ -48,7 +48,7 @@ require_once("../init/haut-page-admin.php");
     </form>
     <br>
    
-    <table class="table table-hover" style="background-color:white;">
+    <table class="table table-hover">
         <thead>
           <tr>
             <th scope="col">id</th>
