@@ -47,8 +47,8 @@ require_once("../init/haut-page.php");
             <input type="file" class="form-control-file" id="exampleFormControlFile1">
         </div>
         <br>
-        <button type="submit" class="btn btn-primary">Ajouté</button>
-        <!--<button type="submit" class="btn btn-primary">Enregistré</button>    Pour la page de modification-->
+        
+        <button type="submit" class="btn btn-primary">Enregistré</button>
     </form>
 <?php 
 require_once("../init/bas-page.php");
