@@ -5,7 +5,7 @@ require_once("../init/haut-page.php");
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- Custom Theme files -->
-<link href="./css/inscription.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/inscription.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/business-casual.min.css" rel="stylesheet">
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <!-- //Custom Theme files -->
@@ -28,7 +28,7 @@ require_once("../init/haut-page.php");
 						<label class="anim">
 							<input type="checkbox" class="checkbox" required="">
 							<span>J'accepte les termes et conditions</span>
-					<	</label>
+						</label>
 						<div class="clear"> </div>
 					</div>
 					<input type="submit" value="S'INSCRIRE">

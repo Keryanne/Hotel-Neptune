@@ -3,6 +3,9 @@ require_once("init/init.php");
 require_once("init/haut-page.php")
 ?>
 
+ <!-- Custom styles for this template -->
+ <link href="<?php echo RACINE_SITE; ?>pages-Client/css/business-casual.min.css" rel="stylesheet">
+
 <section class="page-section clearfix">
     <div class="container">
       <div class="intro">

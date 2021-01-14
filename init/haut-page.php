@@ -10,16 +10,13 @@
 
   <title>Hôtel Neptune</title>
 
-  <!-- Bootstrap core CSS -->
-  <link href="pages-Client/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  
+    <link rel="stylesheet" href="<?php echo RACINE_SITE; ?>pages-Client/css/bootstrap.min.css">
+    <link href="<?php echo RACINE_SITE; ?>pages-Client/css/business-casual.min.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
   <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
 
-  <!-- Custom styles for this template -->
-  <link href="pages-Client/css/business-casual.min.css" rel="stylesheet">
 
 </head>
 
@@ -40,18 +37,18 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item active px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="index.php">Hôtel
+            <a class="nav-link text-uppercase text-expanded" href="<?php echo RACINE_SITE; ?>index.php">Hôtel
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="pages-Client/chambres.php">Chambres</a>
+            <a class="nav-link text-uppercase text-expanded" href="<?php echo RACINE_SITE; ?>pages-Client/chambres.php">Chambres</a>
           </li>
           <li class="nav-item px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="#">Réservations</a>
           </li>
           <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="./connexion.html">Connexion</a>
+            <a class="nav-link text-uppercase text-expanded" href="<?php echo RACINE_SITE; ?>pages-Client/connexion.php">Connexion</a>
           </li>
         </ul>
       </div>
