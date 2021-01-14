@@ -38,7 +38,7 @@
         <ul class="navbar-nav mx-auto">
           <li class="nav-item active px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="<?php echo RACINE_SITE; ?>index.php">Hôtel
-              <span class="sr-only">(current)</span>
+              <span class="sr-only"></span>
             </a>
           </li>
           <li class="nav-item px-lg-4">

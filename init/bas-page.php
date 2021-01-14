@@ -5,9 +5,7 @@
 
     <div class="container">
 
-    <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="<?php echo RACINE_SITE; ?>pages-Admin/index-admin.php">Admin</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+    <a href="<?php echo RACINE_SITE; ?>pages-Admin/index-admin.php">Admin</a>
     </div>
   </footer>
 

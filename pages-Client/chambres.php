@@ -32,7 +32,7 @@ require_once("../init/haut-page.php");
                 <h5 class="card-title">Chambre 2</h5>
                 <p class="card-text"><small class="text-muted">PRIX</small></p>
                 <p class="card-text">Description ChambreDescription ChambreDescription ChambreDescription ChambreDescription ChambreDescription ChambreDescription ChambreDescription ChambreDescription ChambreDescription Chambre</p>
-                <a href="#" class="btn btn-primary">En savoir plus</a>
+                <a href="<?php echo RACINE_SITE; ?>pages-Client/description-chambre.php" class="btn btn-primary">En savoir plus</a>
               </div>
             </div>
           </div>
@@ -51,7 +51,7 @@ require_once("../init/haut-page.php");
               <h5 class="card-title">Chambre 3</h5>
               <p class="card-text"><small class="text-muted">PRIX</small></p>
               <p class="card-text">Description ChambreDescription ChambreDescription ChambreDescription ChambreDescription ChambreDescription ChambreDescription ChambreDescription ChambreDescription ChambreDescription Chambre</p>
-              <a href="#" class="btn btn-primary">En savoir plus</a>
+              <a href="<?php echo RACINE_SITE; ?>pages-Client/description-chambre.php" class="btn btn-primary">En savoir plus</a>
             </div>
           </div>
         </div>
@@ -67,7 +67,7 @@ require_once("../init/haut-page.php");
               <h5 class="card-title">Chambre 4</h5>
               <p class="card-text"><small class="text-muted">PRIX</small></p>
               <p class="card-text">Description ChambreDescription ChambreDescription ChambreDescription ChambreDescription ChambreDescription ChambreDescription ChambreDescription ChambreDescription ChambreDescription Chambre</p>
-              <a href="#" class="btn btn-primary">En savoir plus</a>
+              <a href="<?php echo RACINE_SITE; ?>pages-Client/description-chambre.php" class="btn btn-primary">En savoir plus</a>
             </div>
           </div>
         </div>
