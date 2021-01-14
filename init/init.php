@@ -1,6 +1,6 @@
 <?php
 
-$mysqli = new mysqli("localhost", "root", "", "site");
+$mysqli = new mysqli("localhost", "root", "", "neptune");
 if ($mysqli->connect_error) die('La connexion à la base de donnée à échouer : ' . $mysqli->connect_error);
 
 session_start();
