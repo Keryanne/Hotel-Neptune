@@ -57,7 +57,7 @@
       </div>
     </div>';
     }
-    if(internauteEstConnecte())
+    else if(internauteEstConnecte())
     {
       echo '<div class="container">
       <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#" style="vertical-align:middle;">Hôtel Neptune</a>
