@@ -1,6 +1,6 @@
 <?php
 require_once("../init/init.php");
-require_once("../init/haut-page.php");
+require_once("../init/haut-page-admin.php");
 ?>
  <form action="" style="background-color:white;">
         <br>

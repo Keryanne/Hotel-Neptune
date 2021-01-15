@@ -1,8 +1,8 @@
 <?php
 require_once("../init/init.php");
-require_once("../init/haut-page.php");
+require_once("../init/haut-page-admin.php");
 ?>
- <form action="" style="background-color:white;">
+ <form action="" style="background-color:white; padding-bottom:10px; padding-left:10px; padding-right:10px;">
         <br>
         <div style="display:flex; flex-direction:row;">
             <div class="col" style="margin-right:5px;">
@@ -20,6 +20,7 @@ require_once("../init/haut-page.php");
               <option>1</option>
               <option>2</option>
               <option>3</option>
+              <option>4</option>
             </select>
           </div>
           <br>
