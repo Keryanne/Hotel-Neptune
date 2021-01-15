@@ -2,7 +2,7 @@
 session_start();
 if(isset($_POST['mail']) && isset($_POST['mot_de_passe']))
 {
-    
+     
     // on applique les deux fonctions mysqli_real_escape_string et htmlspecialchars
     // pour éliminer toute attaque de type injection SQL et XSS
     $mail = mysqli_real_escape_string($db,htmlspecialchars($_POST['mail'])); 
