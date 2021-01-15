@@ -1,6 +1,6 @@
 <?php
 require_once("../init/init.php");
-require_once("../init/haut-page-admin.php");
+require_once("../init/haut-page.php");
 ?>
 
 <link rel="stylesheet" href="<?php echo RACINE_SITE; ?>pages-Client/css/bootstrap.min.css">
