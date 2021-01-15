@@ -3,6 +3,14 @@ require_once("../init/init.php");
 require_once("../init/haut-page.php");
 ?>
 
+<?php
+if(!internauteEstConnecteEtEstAdmin())
+{
+    header("location:../pages-Client/connexion.php");
+    exit();
+}
+?>
+
 <link rel="stylesheet" href="<?php echo RACINE_SITE; ?>pages-Client/css/bootstrap.min.css">
 <link rel="stylesheet" href="<?php echo RACINE_SITE; ?>pages-Client/css/bootstrap.css">
 
