@@ -1,31 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 5.0.2
--- https://www.phpmyadmin.net/
---
--- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 14 jan. 2021 à 20:38
--- Version du serveur :  5.7.31
--- Version de PHP : 7.3.21
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Base de données : `neptune`
---
-
--- --------------------------------------------------------
-
---
--- Structure de la table `chambres`
---
 
 DROP TABLE IF EXISTS `chambres`;
 CREATE TABLE IF NOT EXISTS `chambres` (
@@ -39,9 +11,6 @@ CREATE TABLE IF NOT EXISTS `chambres` (
   KEY `tarif_id` (`tarif_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
---
--- Déchargement des données de la table `chambres`
---
 
 INSERT INTO `chambres` (`id`, `capacite`, `exposition`, `douche`, `etage`, `tarif_id`) VALUES
 (1, 2, 'port', 0, 1, 2),
@@ -57,11 +26,6 @@ INSERT INTO `chambres` (`id`, `capacite`, `exposition`, `douche`, `etage`, `tari
 (11, 2, 'port', 0, 3, 2),
 (12, 4, 'port', 1, 3, 5);
 
--- --------------------------------------------------------
-
---
--- Structure de la table `clients`
---
 
 DROP TABLE IF EXISTS `clients`;
 CREATE TABLE IF NOT EXISTS `clients` (
@@ -77,9 +41,6 @@ CREATE TABLE IF NOT EXISTS `clients` (
   KEY `pays_id` (`pays_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=159 DEFAULT CHARSET=utf8;
 
---
--- Déchargement des données de la table `clients`
---
 
 INSERT INTO `clients` (`id`, `civilite`, `nom`, `prenom`, `adresse`, `codePostal`, `ville`, `pays_id`) VALUES
 (1, 'Mademoiselle', 'DUMAS', 'Sandrine', '5 allée des Tilleuls', '75010', 'PARIS', 1),
@@ -241,12 +202,6 @@ INSERT INTO `clients` (`id`, `civilite`, `nom`, `prenom`, `adresse`, `codePostal
 (157, 'Mademoiselle', 'MAILLARD', 'Julie', 'La Chesnaie', '35235', 'THORIGNE FOUILLARD', 1),
 (158, 'Mademoiselle', 'BANELIER', 'Garance', '28 rue Ambroise', '1200', 'GENEVE', 4);
 
--- --------------------------------------------------------
-
---
--- Structure de la table `pays`
---
-
 DROP TABLE IF EXISTS `pays`;
 CREATE TABLE IF NOT EXISTS `pays` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -254,21 +209,12 @@ CREATE TABLE IF NOT EXISTS `pays` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
---
--- Déchargement des données de la table `pays`
---
 
 INSERT INTO `pays` (`id`, `nom`) VALUES
 (1, 'France'),
 (2, 'Grande-Bretagne'),
 (3, 'Belgique'),
 (4, 'Suisse');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `planning`
---
 
 DROP TABLE IF EXISTS `planning`;
 CREATE TABLE IF NOT EXISTS `planning` (
@@ -280,10 +226,6 @@ CREATE TABLE IF NOT EXISTS `planning` (
   PRIMARY KEY (`chambre_id`,`jour`,`client_id`),
   KEY `client_id` (`client_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `planning`
---
 
 INSERT INTO `planning` (`chambre_id`, `jour`, `acompte`, `paye`, `client_id`) VALUES
 (1, '2020-10-01 00:00:00', 0, 0, 13),
@@ -556,12 +498,6 @@ INSERT INTO `planning` (`chambre_id`, `jour`, `acompte`, `paye`, `client_id`) VA
 (12, '2021-07-25 00:00:00', 0, 1, 101),
 (12, '2021-07-27 00:00:00', 0, 0, 101);
 
--- --------------------------------------------------------
-
---
--- Structure de la table `tarifs`
---
-
 DROP TABLE IF EXISTS `tarifs`;
 CREATE TABLE IF NOT EXISTS `tarifs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -570,9 +506,6 @@ CREATE TABLE IF NOT EXISTS `tarifs` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
---
--- Déchargement des données de la table `tarifs`
---
 
 INSERT INTO `tarifs` (`id`, `prix`, `libelle`) VALUES
 (1, 38, NULL),
@@ -581,30 +514,13 @@ INSERT INTO `tarifs` (`id`, `prix`, `libelle`) VALUES
 (4, 58, NULL),
 (5, 68, NULL);
 
---
--- Contraintes pour les tables déchargées
---
-
---
--- Contraintes pour la table `chambres`
---
 ALTER TABLE `chambres`
   ADD CONSTRAINT `chambres_ibfk_1` FOREIGN KEY (`tarif_id`) REFERENCES `tarifs` (`id`);
 
---
--- Contraintes pour la table `clients`
---
 ALTER TABLE `clients`
   ADD CONSTRAINT `clients_ibfk_1` FOREIGN KEY (`pays_id`) REFERENCES `pays` (`id`);
 
---
--- Contraintes pour la table `planning`
---
 ALTER TABLE `planning`
   ADD CONSTRAINT `planning_ibfk_1` FOREIGN KEY (`chambre_id`) REFERENCES `chambres` (`id`),
   ADD CONSTRAINT `planning_ibfk_2` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`);
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

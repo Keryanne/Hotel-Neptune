@@ -5,7 +5,7 @@
 
     <div class="container">
 
-    <a href="<?php echo RACINE_SITE; ?>pages-Admin/index-admin.php">Admin</a>
+    <a class="m-0 small" style="text-decoration:none; color: rgba(255,255,255,.3);" href="<?php echo RACINE_SITE; ?>pages-Admin/index-admin.php">Admin</a>
     </div>
   </footer>
 
