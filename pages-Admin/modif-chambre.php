@@ -4,8 +4,8 @@ require_once("../init/haut-page.php");
 ?>
  <form action="" style="background-color:white;">
         <br>
-        <div class="row">
-            <div class="col">
+        <div style="display:flex; flex-direction:row;">
+            <div class="col" style="margin-right:5px;">
               <input type="text" class="form-control" placeholder="Nom de la chambre">
             </div>
             <div class="col">
