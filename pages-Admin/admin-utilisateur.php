@@ -3,14 +3,6 @@ require_once("../init/init.php");
 require_once("../init/haut-page.php");
 ?>
 
-
-
-
-<!DOCTYPE html><?php
-require_once("../init/init.php");
-require_once("../init/haut-page-admin.php");
-?>
-
 <link rel="stylesheet" href="<?php echo RACINE_SITE; ?>pages-Client/css/bootstrap.min.css">
 <link rel="stylesheet" href="<?php echo RACINE_SITE; ?>pages-Client/css/bootstrap.css">
 
