@@ -10,5 +10,6 @@ define("RACINE_SITE","/Projet-PHP/");
 
 $contenu = '';
 
+require_once("fonction.php");
 
 ?>
