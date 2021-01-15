@@ -42,9 +42,7 @@ require_once("../init/haut-page-admin.php");
                 </select>
         </div>
     </div>
-  </div>
-        
-            
+  </div>     
         
         <br>
         <br>
