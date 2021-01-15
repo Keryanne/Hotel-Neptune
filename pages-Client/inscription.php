@@ -32,6 +32,7 @@ require_once("../init/haut-page.php");
 						<div class="clear"> </div>
 					</div>
 					<input type="submit" value="S'INSCRIRE">
+					
 				</form>
 				<p>Vous avez déjà un compte? <a href="./connexion.php">Connectez-vous maintenant!</a></p>
 			</div>

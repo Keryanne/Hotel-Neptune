@@ -85,7 +85,7 @@
           </li>
         </ul>
       </div>
-    </div>'
+    </div>';
     }
     else{
       echo '<div class="container">
@@ -111,7 +111,7 @@
           </li>
         </ul>
       </div>
-    </div>'
+    </div>';
     }
    ?>
   </nav>
