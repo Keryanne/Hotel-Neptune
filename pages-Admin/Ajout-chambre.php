@@ -2,6 +2,15 @@
 require_once("../init/init.php");
 require_once("../init/haut-page.php");
 ?>
+
+<?php
+if(!internauteEstConnecteEtEstAdmin())
+{
+    header("location:" . RACINE_SITE . "pages_Client/connexion.php");
+    exit();
+}
+?>
+
  <form action="" style="background-color:white;">
         <br>
         <div class="row">

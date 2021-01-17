@@ -1,6 +1,7 @@
 <?php
 require_once("../init/init.php");
 require_once("../init/haut-page.php");
+if(!internauteEstConnecte()) header("location:connexion.php");
 ?>
 
 <link rel="stylesheet" href="<?php echo RACINE_SITE; ?>pages-Client/css/boostrap.min.css ">

@@ -1,7 +1,6 @@
-<?php
-require_once("../init/init.php");
-require_once("../init/haut-page.php");
-?>
+<?php require_once("../init/init.php");?>
+<?php require_once("../init/haut-page.php");?>
+
 
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link href="css/business-casual.min.css" rel="stylesheet">

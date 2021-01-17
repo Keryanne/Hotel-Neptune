@@ -45,7 +45,7 @@
             </a>
           </li>
           <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="<?php echo RACINE_SITE; ?>pages-admin/Recap-chambre.php">Gestion des Chambres</a>
+            <a class="nav-link text-uppercase text-expanded" href="<?php echo RACINE_SITE; ?>pages-admin/Recap-chambre.php?action=affichage">Gestion des Chambres</a>
           </li>
           <li class="nav-item px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="<?php echo RACINE_SITE; ?>pages-admin/admin-reservation.php">Gestion des Réservations</a>

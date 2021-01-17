@@ -1,7 +1,5 @@
-<?php
-require_once("../init/init.php");
-require_once("../init/haut-page.php");
-?>
+<?php require_once("../init/init.php");?>
+<?php require_once("../init/haut-page.php");?>
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- Custom Theme files -->
