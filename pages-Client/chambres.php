@@ -24,7 +24,7 @@ echo '<div style="align-items:center;">';
           
           echo '<p class="card-text"><small class="text-muted">' . $chambres["prix"] . '</small></p>';
           echo '<p class="card-text">Voici votre ' . $chambres["Nom_chambre"] . '</p>';
-          echo '<a href="<?php echo RACINE_SITE; ?>pages-Client/description-chambre.php?id_chambre= <?php $chambres[id_chambre] ?>" class="btn btn-primary">En savoir plus</a>
+          echo '<a href="<?php echo RACINE_SITE; ?>pages-Client/description-chambre.php?id_chambre= '. $chambres['id_chambre'] .'" class="btn btn-primary">En savoir plus</a>
           </div>
         </div>
       </div>

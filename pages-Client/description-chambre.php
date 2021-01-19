@@ -13,10 +13,13 @@ $('#myInput').trigger('focus')
 </script>
 
 <?php 
+   if(isset($_GET['id_produit']))
+   {
     $donnees = executeRequete("SELECT DISTINCT * FROM chambres INNER JOIN tarifs ON chambres.tarif_id = tarifs.tarif_id"); 
+   } 
 
-    while($chambres = $donnees->fetch_assoc())
-    {
+    $chambres = $donnees->fetch_assoc())
+    
         echo '<div style="display:flex; justify-content:center; margin-top:20px;">
         <div class="card mb-3" style="max-width: auto; margin-right:20px; margin-left:20px">
         <div class="row no-gutters">

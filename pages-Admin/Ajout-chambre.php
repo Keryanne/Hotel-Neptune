@@ -4,51 +4,64 @@ require_once("../init/haut-page.php");
 ?>
 
 <?php
-if(!internauteEstConnecteEtEstAdmin())
+/* if(!internauteEstConnecteEtEstAdmin())
 {
     header("location:" . RACINE_SITE . "pages_Client/connexion.php");
     exit();
-}
+}*/
+
+$dchambre = executeRequete("SELECT DISTINCT * FROM chambres INNER JOIN tarifs ON chambres.tarif_id = tarifs.tarif_id"); 
+
 ?>
 
- <form action="" style="background-color:white;">
+<?php
+
+ echo '<form method ="post" action="Recap-chambre.php" style="background-color:white;">
         <br>
         <div class="row">
             <div class="col">
-              <input type="text" class="form-control" placeholder="Nom de la chambre">
+              <input type="text" class="form-control" placeholder="Nom de la chambre" value='$dchambre['Nom_chambre']'>
             </div>
             <div class="col">
-              <input type="text" class="form-control" placeholder="Prix">
+              <input type="text" class="form-control" placeholder="Prix" value='$dchambre['prix']'>
             </div>
         </div>
         <br>
         <div class="form-group col-md-4">
             <label for="inputState">Capacité</label>
             <select id="inputState" class="form-control">
-              <option selected>...</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-            </select>
+              <option selected>...</option>';
+              for($i = 1;$i <= 3;$i++)
+              {
+                  echo '<option value="'.$i.'">'.$i.'</option>';
+              }
+            echo '</select>
           </div>
           <br>
         <div class="form-group col-md-4">
         <label for="inputState">Etage</label>
         <select id="inputState" class="form-control">
-            <option selected>...</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-        </select>
+            <option selected>...</option>';
+            for($i = 1;$i <= 3;$i++)
+            {
+                echo '<option value="'.$i.'">'.$i.'</option>';
+            }
+        echo '</select>
         </div>
         <br>
         <div class="form-group col-md-4">
             <label for="inputState">Exposition</label>
             <select id="inputState" class="form-control">
-                <option selected>...</option>
-                <option>Port</option>
-                <option>Rempart</option>
-            </select>
+                <option selected>...</option>';
+                if($dchambre['exposition'] == 'port')
+                {
+                  echo '<option>Port</option>';
+                }
+                else
+                {
+                  echo '<option>Rempart</option>';
+                }
+            echo '</select>
             </div>
         <br>
         <div class="form-group">
@@ -58,7 +71,7 @@ if(!internauteEstConnecteEtEstAdmin())
         <br>
         <button type="submit" class="btn btn-primary">Ajouté</button>
         <!--<button type="submit" class="btn btn-primary">Enregistré</button>    Pour la page de modification-->
-    </form>
+    </form>';
 <?php 
 require_once("../init/bas-page.php");
 ?>
