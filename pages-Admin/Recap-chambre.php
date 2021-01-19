@@ -65,7 +65,7 @@ require_once("../init/haut-page-admin.php");
 <?php 
 
 echo '<h2>Ajouter une chambre</h2>
-<a href="<?php echo RACINE_SITE; ?>pages_Admin/Ajout_chambre.php?action=ajout"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+<a href="Ajout-chambre.php?action=ajout"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
 <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
 </svg></a>';
 

@@ -65,10 +65,6 @@ if($_POST)
 					<input class="text email" type="email" name="mail" placeholder="Email" required="" for="mail" id="mail">
 					<input class="text" type="password" name="mot_de_passe" placeholder="Mot de passe" required="" for="mot_de_passe" id="mot_de_passe">
 					<div class="wthree-text">
-						<label class="anim">
-							<input type="checkbox" class="checkbox" required="">
-							<span>J'accepte les termes et conditions</span>
-						</label>
 						<div class="clear"> </div>
 					</div>
 					<input type="submit" value="SE CONNECTER">
