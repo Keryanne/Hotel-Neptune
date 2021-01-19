@@ -13,14 +13,23 @@ $('#myInput').trigger('focus')
 </script>
 
 <?php 
-   if(isset($_GET['id_produit']))
-   {
-    $donnees = executeRequete("SELECT DISTINCT * FROM chambres INNER JOIN tarifs ON chambres.tarif_id = tarifs.tarif_id"); 
-   } 
 
-    $chambres = $donnees->fetch_assoc()
+ 
+
+if(isset($_GET['id_chambre']))
+{
+  $donnees = executeRequete("SELECT DISTINCT * FROM chambres,tarifs WHERE id_chambre = '$_GET[id_chambre]' AND chambres.tarif_id = tarifs.tarif_id");  
+}
+
+if($donnees->num_rows <= 0) 
+{ 
+  header("location:chambres.php"); 
+  exit(); 
+}
+
+    $chambres = $donnees->fetch_assoc();
     
-        echo '<div style="display:flex; justify-content:center; margin-top:20px;">
+        echo ('<div style="display:flex; justify-content:center; margin-top:20px;">
         <div class="card mb-3" style="max-width: auto; margin-right:20px; margin-left:20px">
         <div class="row no-gutters">
             <div class="col-md-4">
@@ -29,23 +38,23 @@ $('#myInput').trigger('focus')
             <div class="col-md-8">
             <div class="card-body">
                 <h5 class="card-title">'. $chambres['Nom_chambre'] .'</h5>
-                <p class="card-text"><small class="text-muted">'. $chambres['Nom_chambre'] .'</small></p>
-                <p class="card-text">Capacité : '. $chambres['capacite'] .' personnes</p>';
+                <p class="card-text"><small class="text-muted">'. $chambres['prix'] .'</small></p>
+                <p class="card-text">Capacité : '. $chambres['capacite'] .' personnes</p>');
                
                 if($chambres['douche']==1)
                 {
-                    echo "<p class='card-text'>Cette chambre possède une salle d'eau privative</p>";
+                    echo ("<p class='card-text'>Cette chambre possède une salle d'eau privative</p>");
                 }
                 else
                 {
-                    echo "<p class='card-text'>Cette chambre possède une salle de bain privative</p>";
+                    echo ("<p class='card-text'>Cette chambre possède une salle de bain privative</p>");
                 }
                 
-                echo '<p class="card-text">Elle est vue '. $chambres['exposition'] .'</p>
-                <p class="card-text">Elle se situe au '. $chambres['etage'] .'ème</p>
+                echo ('<p class="card-text">Elle est vue '. $chambres['exposition'] .'</p>
+                <p class="card-text">Elle se situe au '. $chambres['etage'] .'ème étage</p>
             </div>
             <div style="margin-bottom:5px;">
-            <a href="<?php echo RACINE_SITE; ?>pages-Client/chambres.php" class="btn btn-primary">Retour aux chambres</a>
+            <a href="chambres.php" class="btn btn-primary">Retour aux chambres</a>
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                 Réservez
@@ -74,8 +83,8 @@ $('#myInput').trigger('focus')
             </div>
         </div>
         </div>
-    </div>';
-    }
+    </div>');
+   
 ?>
 
 <?php 

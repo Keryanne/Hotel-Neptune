@@ -2,11 +2,6 @@
     <div class="container">
       <p class="m-0 small">Copyright &copy; 2020</p>
     </div>
-
-    <div class="container">
-
-    <a class="m-0 small" style="text-decoration:none; color: rgba(255,255,255,.3);" href="<?php echo RACINE_SITE; ?>pages-Admin/index-admin.php">Admin</a>
-    </div>
   </footer>
 
   <!-- Bootstrap core JavaScript -->

@@ -1,6 +1,32 @@
 <?php require_once("../init/init.php");?>
 <?php require_once("../init/haut-page.php");?>
 
+<?php 
+
+if($_POST)
+{
+    debug($_POST);
+    
+        $clients = executeRequete("SELECT * FROM clients WHERE mail='$_POST[mail]'");
+        if($clients->num_rows > 0)
+        {
+           echo "<div class='erreur'>Mauvais mail</div>";
+        }
+        else
+        {
+            // $_POST['mot_de_passe'] = md5($_POST['mot_de_passe']);
+            foreach($_POST as $indice => $valeur)
+            {
+                $_POST[$indice] = htmlEntities(addSlashes($valeur));
+            }
+            executeRequete("INSERT INTO clients (id, mot_de_passe, nom, prenom, mail, civilite, ville, codePostal, adresse, pays_id, utilisateur) VALUES ('$_POST[id]', '$_POST[mot_de_passe]', '$_POST[nom]', '$_POST[prenom]', '$_POST[mail]', '$_POST[civilite]', '$_POST[ville]', '$_POST[code_postal]', '$_POST[adresse]', '$_POST[pays_id]', '$_POST[utilisteur]')");
+           echo "<div class='validation'>Vous êtes inscrit à notre site web.";
+        }
+}
+
+
+?>
+
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- Custom Theme files -->
 <link href="css/inscription.css" rel="stylesheet" type="text/css" media="all" />

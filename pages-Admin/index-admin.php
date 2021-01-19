@@ -1,6 +1,6 @@
 <?php
 require_once("../init/init.php");
-require_once("../init/haut-page.php");
+require_once("../init/haut-page-admin.php");
 ?>
 
 <div style="text-align:center; background-color:white; padding-top:20px; padding-bottom:20px; ">

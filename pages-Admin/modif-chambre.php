@@ -1,7 +1,8 @@
 <?php
 require_once("../init/init.php");
-require_once("../init/haut-page.php");
+require_once("../init/haut-page-admin.php");
 ?>
+
  <form action="" style="background-color:white; padding-bottom:10px; padding-left:10px; padding-right:10px;">
         <br>
         <div style="display:flex; flex-direction:row;">

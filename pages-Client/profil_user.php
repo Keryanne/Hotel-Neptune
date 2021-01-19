@@ -23,9 +23,21 @@ info perso
 
   <div class="col-9" style="margin-left: 15px;">
     <div class="tab-content" id="v-pills-tabContent">
-      <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab"><p>Informations utilisateur</p><p>Informations utilisateur</p><p>Informations utilisateur</p><p>Informations utilisateur</p><p>Informations utilisateur</p><p>Informations utilisateur</p></div>
-      <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"><p>Contacts Admins</p><p>Contacts Admins</p><p>Contacts Admins</p><p>Contacts Admins</p></div>
-      <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab"><p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p></div>
+        <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+        <p>Informations utilisateur</p><p>Informations utilisateur</p><p>Informations utilisateur</p><p>Informations utilisateur</p><p>Informations utilisateur</p><p>Informations utilisateur</p>
+        </div>
+        
+        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+        <p>Contacts Admins</p><p>Contacts Admins</p><p>Contacts Admins</p><p>Contacts Admins</p>
+        </div>
+
+        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+            <p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p>
+            <a class="nav-link text-uppercase text-expanded" href="<?php echo RACINE_SITE; ?>init/deconnexion.php" style="display:flex; justify-content:end;"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-x-fill" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
+            </svg></a>
+        </div>
+      
     </div>
   </div>
 </div>

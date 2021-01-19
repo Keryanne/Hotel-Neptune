@@ -1,14 +1,9 @@
 <?php
 require_once("../init/init.php");
-require_once("../init/haut-page.php");
+require_once("../init/haut-page-admin.php");
 ?>
 
 <?php
-/* if(!internauteEstConnecteEtEstAdmin())
-{
-    header("location:" . RACINE_SITE . "pages_Client/connexion.php");
-    exit();
-}*/
 
 $dchambre = executeRequete("SELECT DISTINCT * FROM chambres INNER JOIN tarifs ON chambres.tarif_id = tarifs.tarif_id"); 
 
