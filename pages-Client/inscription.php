@@ -10,7 +10,7 @@ if($_POST)
         $clients = executeRequete("SELECT * FROM clients WHERE mail='$_POST[mail]'");
         if($clients->num_rows > 0)
         {
-           echo "<div class='erreur'>Mauvais mail</div>";
+           echo "<div class='erreur'>Mail existant</div>";
         }
         else
         {
