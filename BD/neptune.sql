@@ -1,30 +1,69 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1:3306
+-- Généré le : mer. 20 jan. 2021 à 19:07
+-- Version du serveur :  5.7.31
+-- Version de PHP : 7.3.21
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données : `neptune`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `chambres`
+--
+
 DROP TABLE IF EXISTS `chambres`;
 CREATE TABLE IF NOT EXISTS `chambres` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_chambre` int(11) NOT NULL AUTO_INCREMENT,
+  `Nom_chambre` varchar(100) NOT NULL,
   `capacite` int(11) NOT NULL,
   `exposition` varchar(20) DEFAULT NULL,
   `douche` int(11) NOT NULL DEFAULT '0',
   `etage` int(11) NOT NULL,
   `tarif_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
+  `photo` varchar(250) NOT NULL,
+  PRIMARY KEY (`id_chambre`),
   KEY `tarif_id` (`tarif_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
+--
+-- Déchargement des données de la table `chambres`
+--
 
-INSERT INTO `chambres` (`id`, `capacite`, `exposition`, `douche`, `etage`, `tarif_id`) VALUES
-(1, 2, 'port', 0, 1, 2),
-(2, 4, 'rempart', 0, 1, 5),
-(3, 2, 'port', 0, 1, 2),
-(4, 2, 'rempart', 1, 1, 1),
-(5, 2, 'port', 0, 2, 3),
-(6, 3, 'rempart', 0, 2, 4),
-(7, 3, 'port', 0, 2, 4),
-(8, 2, 'rempart', 1, 2, 3),
-(9, 2, 'port', 0, 3, 1),
-(10, 2, 'rempart', 0, 3, 2),
-(11, 2, 'port', 0, 3, 2),
-(12, 4, 'port', 1, 3, 5);
+INSERT INTO `chambres` (`id_chambre`, `Nom_chambre`, `capacite`, `exposition`, `douche`, `etage`, `tarif_id`, `photo`) VALUES
+(1, 'Chambre double vue port', 2, 'port', 0, 1, 2, ''),
+(2, 'Chambre quadruple vue rempart', 4, 'rempart', 0, 1, 5, ''),
+(3, 'Chambre double vue port', 2, 'port', 0, 1, 2, ''),
+(4, 'Chambre double vue rempart', 2, 'rempart', 1, 1, 1, ''),
+(5, 'Chambre double vue port', 2, 'port', 0, 2, 3, ''),
+(6, 'Chambre triple vue rempart', 3, 'rempart', 0, 2, 4, ''),
+(7, 'Chambre double vue port', 3, 'port', 0, 2, 4, ''),
+(8, 'Chambre double vue rempart', 2, 'rempart', 1, 2, 3, ''),
+(9, 'Chambre double vue port', 2, 'port', 0, 3, 1, ''),
+(10, 'Chambre double vue rempart', 2, 'rempart', 0, 3, 2, ''),
+(11, 'Chambre double vue port', 2, 'port', 0, 3, 2, ''),
+(12, 'Chambre quadruple vue port', 4, 'port', 1, 3, 5, '');
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `clients`
+--
 
 DROP TABLE IF EXISTS `clients`;
 CREATE TABLE IF NOT EXISTS `clients` (
@@ -41,8 +80,11 @@ CREATE TABLE IF NOT EXISTS `clients` (
   `utilisateur` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `pays_id` (`pays_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=159 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=160 DEFAULT CHARSET=utf8;
 
+--
+-- Déchargement des données de la table `clients`
+--
 
 INSERT INTO `clients` (`id`, `civilite`, `nom`, `prenom`, `adresse`, `codePostal`, `ville`, `pays_id`, `mail`, `mot_de_passe`, `utilisateur`) VALUES
 (1, 'Mademoiselle', 'DUMAS', 'Sandrine', '5 allée des Tilleuls', '75010', 'PARIS', 1, 'nfujuejis@gmail.com', 'ertyhj', 1),
@@ -173,7 +215,7 @@ INSERT INTO `clients` (`id`, `civilite`, `nom`, `prenom`, `adresse`, `codePostal
 (126, 'Monsieur', 'BARRET', 'Gurvan', '8 Square de Londres', '26000', 'VALENCE', 1, 'gtuijisu@outlook.com', 'aiutfrh', 1),
 (127, 'Monsieur', 'PIGEON', 'Bruno', '64 rue Albert Camus', '35510', 'CHATEAUGIRON', 1, 'aayij@outlook.com', 'ngbuiry', 1),
 (128, 'Monsieur', 'GEFFROY', 'Lillian', '2 rue Launay', '11000', 'CARCASSONNE', 1, 'vhurhios@outlook.com', 'ahuihrui', 1),
-(129, 'Monsieur', 'JULIEN', 'Lionel', '18 rue des Camélias', '63000', 'CLERMONT FERRAND', 1,' byugui@outlook.com', 'bvuirs', 1),
+(129, 'Monsieur', 'JULIEN', 'Lionel', '18 rue des Camélias', '63000', 'CLERMONT FERRAND', 1, ' byugui@outlook.com', 'bvuirs', 1),
 (130, 'Monsieur', 'FOSTER', 'Michael', 'Tudor Court north 2', 'NW10', 'LONDON', 2, 'thirojlk@outlook.com', 'vhiurhjls', 1),
 (131, 'Monsieur', 'LEGORGE', 'Steven', '65 rue des Foss', '35400', 'PARAME', 1, 'gtruijskl@outlook.com', 'vruijks', 1),
 (132, 'Monsieur', 'DURAND', 'Christian', 'Villa des Résédas', '35830', 'BETTON', 1, 'guitjoms@outlook.com', 'guiydus', 1),
@@ -205,6 +247,12 @@ INSERT INTO `clients` (`id`, `civilite`, `nom`, `prenom`, `adresse`, `codePostal
 (158, 'Mademoiselle', 'BANELIER', 'Garance', '28 rue Ambroise', '1200', 'GENEVE', 4, 'salutbug@outlook.com', 'buebye', 1),
 (159, 'Monsieur', 'ADMIN', 'Admin', 'Admin', '1200', 'PARIS', 1, 'admin@gmail.com', 'admin', 0);
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `pays`
+--
+
 DROP TABLE IF EXISTS `pays`;
 CREATE TABLE IF NOT EXISTS `pays` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -212,12 +260,21 @@ CREATE TABLE IF NOT EXISTS `pays` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
+--
+-- Déchargement des données de la table `pays`
+--
 
 INSERT INTO `pays` (`id`, `nom`) VALUES
 (1, 'France'),
 (2, 'Grande-Bretagne'),
 (3, 'Belgique'),
 (4, 'Suisse');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `planning`
+--
 
 DROP TABLE IF EXISTS `planning`;
 CREATE TABLE IF NOT EXISTS `planning` (
@@ -229,6 +286,10 @@ CREATE TABLE IF NOT EXISTS `planning` (
   PRIMARY KEY (`chambre_id`,`jour`,`client_id`),
   KEY `client_id` (`client_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `planning`
+--
 
 INSERT INTO `planning` (`chambre_id`, `jour`, `acompte`, `paye`, `client_id`) VALUES
 (1, '2020-10-01 00:00:00', 0, 0, 13),
@@ -501,29 +562,55 @@ INSERT INTO `planning` (`chambre_id`, `jour`, `acompte`, `paye`, `client_id`) VA
 (12, '2021-07-25 00:00:00', 0, 1, 101),
 (12, '2021-07-27 00:00:00', 0, 0, 101);
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `tarifs`
+--
+
 DROP TABLE IF EXISTS `tarifs`;
 CREATE TABLE IF NOT EXISTS `tarifs` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tarif_id` int(11) NOT NULL AUTO_INCREMENT,
   `prix` double NOT NULL,
   `libelle` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`tarif_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
+--
+-- Déchargement des données de la table `tarifs`
+--
 
-INSERT INTO `tarifs` (`id`, `prix`, `libelle`) VALUES
+INSERT INTO `tarifs` (`tarif_id`, `prix`, `libelle`) VALUES
 (1, 38, NULL),
 (2, 49, NULL),
 (3, 53, NULL),
 (4, 58, NULL),
 (5, 68, NULL);
 
-ALTER TABLE `chambres`
-  ADD CONSTRAINT `chambres_ibfk_1` FOREIGN KEY (`tarif_id`) REFERENCES `tarifs` (`id`);
+--
+-- Contraintes pour les tables déchargées
+--
 
+--
+-- Contraintes pour la table `chambres`
+--
+ALTER TABLE `chambres`
+  ADD CONSTRAINT `chambres_ibfk_1` FOREIGN KEY (`tarif_id`) REFERENCES `tarifs` (`tarif_id`);
+
+--
+-- Contraintes pour la table `clients`
+--
 ALTER TABLE `clients`
   ADD CONSTRAINT `clients_ibfk_1` FOREIGN KEY (`pays_id`) REFERENCES `pays` (`id`);
 
+--
+-- Contraintes pour la table `planning`
+--
 ALTER TABLE `planning`
-  ADD CONSTRAINT `planning_ibfk_1` FOREIGN KEY (`chambre_id`) REFERENCES `chambres` (`id`),
+  ADD CONSTRAINT `planning_ibfk_1` FOREIGN KEY (`chambre_id`) REFERENCES `chambres` (`id_chambre`),
   ADD CONSTRAINT `planning_ibfk_2` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`);
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
