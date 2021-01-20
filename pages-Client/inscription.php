@@ -1,30 +1,6 @@
-<?php require_once("../init/init.php");?>
-<?php require_once("../init/haut-page.php");?>
-
-<?php 
-
-if($_POST)
-{
-    debug($_POST);
-    
-        $clients = executeRequete("SELECT * FROM clients WHERE mail='$_POST[mail]'");
-        if($clients->num_rows > 0)
-        {
-           echo "<div class='erreur'>Mauvais mail</div>";
-        }
-        else
-        {
-            // $_POST['mot_de_passe'] = md5($_POST['mot_de_passe']);
-            foreach($_POST as $indice => $valeur)
-            {
-                $_POST[$indice] = htmlEntities(addSlashes($valeur));
-            }
-            executeRequete("INSERT INTO clients (id, mot_de_passe, nom, prenom, mail, civilite, ville, codePostal, adresse, pays_id, utilisateur) VALUES ('$_POST[id]', '$_POST[mot_de_passe]', '$_POST[nom]', '$_POST[prenom]', '$_POST[mail]', '$_POST[civilite]', '$_POST[ville]', '$_POST[code_postal]', '$_POST[adresse]', '$_POST[pays_id]', '$_POST[utilisteur]')");
-           echo "<div class='validation'>Vous êtes inscrit à notre site web.";
-        }
-}
-
-
+<?php
+require_once("../init/init.php");
+require_once("../init/haut-page.php");
 ?>
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -48,6 +24,11 @@ if($_POST)
 					<input class="text email" type="email" name="email" placeholder="Email" required="">
 					<input class="text" type="password" name="Mot de passe" placeholder="Mot de passe" required="">
 					<input class="text w3lpass" type="password" name="Confirmez votre mot de passe" placeholder="Confirmez votre mot de passe" required="">
+					<label for="civilite">Civilité</label>
+					<input name="civilite" value="Monsieur" checked="" type="checkbox" class="checkbox">Homme
+					<input name="civilite" value="Madame" checked="" type="checkbox" class="checkbox">Madame
+					<input name="civilite" value="Mademoiselle" checked="" type="checkbox" class="checkbox">Mademoiselle
+
 					<div class="wthree-text">
 						<label class="anim">
 							<input type="checkbox" class="checkbox" required="">
@@ -56,7 +37,6 @@ if($_POST)
 						<div class="clear"> </div>
 					</div>
 					<input type="submit" value="S'INSCRIRE">
-					
 				</form>
 				<p>Vous avez déjà un compte? <a href="./connexion.php">Connectez-vous maintenant!</a></p>
 			</div>
