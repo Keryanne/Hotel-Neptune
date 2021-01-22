@@ -9,14 +9,14 @@ require_once("../init/haut-page-admin.php");
 
 if(isset($_GET['action']) && $_GET['action'] == "supressionChambres")
 {   
-    $resultat = executeRequete("SELECT * FROM chambres WHERE id_chambre=$_GET[id_chambre]");
+    $resultat = executeRequete("SELECT * FROM chambres INNER JOIN tarifs ON chambres.tarif_id = tarifs.tarif_id WHERE id_chambre=$_GET[id_chambre]");
     $chambre_a_supprimer = $resultat->fetch_assoc();
     $chemin_photo_a_supprimer = $_SERVER['DOCUMENT_ROOT'] . $chambre_a_supprimer['photo'];
 
     if(!empty($chambre_a_supprimer['photo']) && file_exists($chemin_photo_a_supprimer)) unlink($chemin_photo_a_supprimer);
 
     echo '<div class="validation">Suppression de la chambre : ' . $_GET['id_chambre'] . '</div>';
-    executeRequete("DELETE FROM chambres WHERE id_chambre=$_GET[id_chambre]");
+    executeRequete("DELETE FROM chambres INNER JOIN tarifs ON chambres.tarif_id = tarifs.tarif_id WHERE id_chambre=$_GET[id_chambre]");
     $_GET['action'] = 'affichageChambres';
 }
 
