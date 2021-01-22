@@ -40,13 +40,13 @@ if(isset($_GET['action']) && ($_GET['action'] == 'ajoutChambres' || $_GET['actio
 
 
  echo '<form action="" style="background-color:white; padding-bottom:10px; padding-left:10px; padding-right:10px;">
-    <input type="hidden" id="id_chambre" name="id_chambre" value="'; if(isset($chambre_actuel['id_chambre'])) $chambre_actuel['id_chambre']">
-        <br>
+    <input type="hidden" id="id_chambre" name="id_chambre" value="'; if(isset($chambre_actuel['id_chambre'])) $chambre_actuel['id_chambre'] '">';
+       echo '<br>
         <div style="display:flex; flex-direction:row;">
             <div class="col" style="margin-right:5px;">
             <label for="inputState">Nom de la chambre</label>
-              <input type="text" class="form-control" id="Nom_chambre" name="Nom_chambre" value="'; if(isset($chambre_actuel['Nom_chambre'])) echo $chambre_actuel['Nom_chambre']; echo '">
-            </div>
+              <input type="text" class="form-control" id="Nom_chambre" name="Nom_chambre" value="'; if(isset($chambre_actuel['Nom_chambre'])) echo $chambre_actuel['Nom_chambre'] '">';
+            echo '</div>
             <div class="col">
               <input type="text" class="form-control" placeholder="Prix">
             </div>
