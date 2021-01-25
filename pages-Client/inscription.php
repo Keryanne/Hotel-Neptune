@@ -11,10 +11,6 @@ require_once("../init/haut-page.php");
 	if ((!empty($_POST['civilite'])) && (!empty($_POST['nom']))	&& (!empty($_POST['prenom'])) && (!empty($_POST['mail'])) && (!empty($_POST['mot_de_passe'])))
 ?>
 
-<?php 
-
-?>
-
 <?php
 if ($_POST)
 {
