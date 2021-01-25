@@ -2,6 +2,7 @@
 require_once("../init/init.php");
 require_once("../init/haut-page.php");
 ?>
+
 <?php
 //On teste si le formulaire a été soumis
 	if ((isset($_POST['civilite'])) && (isset($_POST['nom']))	&& (isset($_POST['prenom'])) && (isset($_POST['mail'])) && (isset($_POST['mot_de_passe']) ))
@@ -9,16 +10,36 @@ require_once("../init/haut-page.php");
 	//on teste si tous les champs du formulaire sont remplits
 	if ((!empty($_POST['civilite'])) && (!empty($_POST['nom']))	&& (!empty($_POST['prenom'])) && (!empty($_POST['mail'])) && (!empty($_POST['mot_de_passe'])))
 ?>
-<?php $sql=" INSERT INTO clients (`id`, `civilite`, `nom`, `prenom`, `mail`, `mot_de_passe`)
-VALUES('','$_POST[civilite]','$_POST[nom]','$_POST[prenom]','$_POST[mail]','$_POST[mot_de_passe]')";
+
+<?php 
+
 ?>
 
 <?php
-if ($_POST){
-	if($membre->num_rows > 0){
-		executeRequete("INSERT INTO membre (pseudo, mdp, nom, prenom, email, civilite, ville, code_postal, adresse) VALUES ('$_POST[pseudo]', '$_POST[mdp]', '$_POST[nom]', '$_POST[prenom]', '$_POST[email]', '$_POST[civilite]', '$_POST[ville]', '$_POST[code_postal]', '$_POST[adresse]')");
-            $contenu .= "<div class='validation'>Vous êtes inscrit à notre site web. <a href=\"connexion.php\"><u>Cliquez ici pour vous connecter</u></a></div>";
-         }?>
+if ($_POST)
+{
+	$clients = executeRequete("SELECT * FROM clients WHERE mail='$_POST[mail]'");
+    if($clients->num_rows > 0)
+	{
+        echo "<div class='erreur'>Mail déjà utilisé. Veuillez vous connecté.</div>";
+	}
+	
+    else
+    {
+        // $_POST['mdp'] = md5($_POST['mdp']);
+        foreach($_POST as $indice => $valeur)
+        {
+            $_POST[$indice] = htmlEntities(addSlashes($valeur));
+		}
+		
+		executeRequete("INSERT INTO clients (`civilite`, `nom`, `prenom`, `mail`, `mot_de_passe`) VALUES('$_POST[civilite]','$_POST[nom]','$_POST[prenom]','$_POST[mail]','$_POST[mot_de_passe]')");
+		
+		echo "<div class='validation'>Vous êtes inscrit à notre site web. <a href=\"connexion.php\"><u>Cliquez ici pour vous connecter</u></a></div>";
+	}
+}
+?>
+
+
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1);} </script>
 <!-- Custom Theme files -->
 <link href="css/inscription.css" rel="stylesheet" type="text/css" media="all" />
@@ -63,7 +84,7 @@ if ($_POST){
 						</label>
 						<div class="clear"> </div>
 					</div>
-					<input type="submit" value="S'INSCRIRE">
+					<input type="submit" name="inscription" value="S'INSCRIRE">
 				</form>
 				<p>Vous avez déjà un compte? <a href="./connexion.php">Connectez-vous maintenant!</a></p>
 			</div>
