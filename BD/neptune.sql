@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 20 jan. 2021 à 19:07
+-- Généré le : lun. 25 jan. 2021 à 10:33
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `chambres` (
   `photo` varchar(250) NOT NULL,
   PRIMARY KEY (`id_chambre`),
   KEY `tarif_id` (`tarif_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `chambres`
@@ -57,7 +57,8 @@ INSERT INTO `chambres` (`id_chambre`, `Nom_chambre`, `capacite`, `exposition`, `
 (9, 'Chambre double vue port', 2, 'port', 0, 3, 1, ''),
 (10, 'Chambre double vue rempart', 2, 'rempart', 0, 3, 2, ''),
 (11, 'Chambre double vue port', 2, 'port', 0, 3, 2, ''),
-(12, 'Chambre quadruple vue port', 4, 'port', 1, 3, 5, '');
+(12, 'Chambre quadruple vue port', 4, 'port', 1, 3, 5, ''),
+(13, 'Chambre double vue rempart', 2, 'rempart', 1, 3, 1, '');
 
 -- --------------------------------------------------------
 
@@ -77,10 +78,10 @@ CREATE TABLE IF NOT EXISTS `clients` (
   `pays_id` int(11) DEFAULT NULL,
   `mail` varchar(100) NOT NULL,
   `mot_de_passe` varchar(100) NOT NULL,
-  `utilisateur` int(11) NOT NULL,
+  `utilisateur` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `pays_id` (`pays_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=160 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=161 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `clients`
