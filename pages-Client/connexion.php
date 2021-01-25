@@ -35,12 +35,12 @@ if($_POST)
         }
         else
         {
-            echo '<div class="erreur">Erreur de mot_de_passe</div>';
+            echo '<div class="erreur">Erreur de mot de passe</div>';
         }       
     }
     else
     {
-        echo '<div class="erreur">Erreur de pseudo</div>';
+        echo '<div class="erreur">Erreur de mail </div>';
     }
 }
 

@@ -2,8 +2,24 @@
 require_once("../init/init.php");
 require_once("../init/haut-page.php");
 ?>
+<?php
+//On teste si le formulaire a été soumis
+	if ((isset($_POST['civilite'])) && (isset($_POST['nom']))	&& (isset($_POST['prenom'])) && (isset($_POST['mail'])) && (isset($_POST['mot_de_passe']) ))
+	
+	//on teste si tous les champs du formulaire sont remplits
+	if ((!empty($_POST['civilite'])) && (!empty($_POST['nom']))	&& (!empty($_POST['prenom'])) && (!empty($_POST['mail'])) && (!empty($_POST['mot_de_passe'])))
+?>
+<?php $sql=" INSERT INTO clients (`id`, `civilite`, `nom`, `prenom`, `mail`, `mot_de_passe`)
+VALUES('','$_POST[civilite]','$_POST[nom]','$_POST[prenom]','$_POST[mail]','$_POST[mot_de_passe]')";
+?>
 
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<?php
+if ($_POST){
+	if($membre->num_rows > 0){
+		executeRequete("INSERT INTO membre (pseudo, mdp, nom, prenom, email, civilite, ville, code_postal, adresse) VALUES ('$_POST[pseudo]', '$_POST[mdp]', '$_POST[nom]', '$_POST[prenom]', '$_POST[email]', '$_POST[civilite]', '$_POST[ville]', '$_POST[code_postal]', '$_POST[adresse]')");
+            $contenu .= "<div class='validation'>Vous êtes inscrit à notre site web. <a href=\"connexion.php\"><u>Cliquez ici pour vous connecter</u></a></div>";
+         }?>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1);} </script>
 <!-- Custom Theme files -->
 <link href="css/inscription.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/business-casual.min.css" rel="stylesheet">
@@ -18,17 +34,28 @@ require_once("../init/haut-page.php");
 		<h1>Formulaire d'inscription</h1>
 		<div class="main-agileinfo">
 			<div class="agileits-top">
-				<form action="#" method="post">
-					<input class="text" type="text" name="Nom" placeholder="Nom" required="">
-                    <input class="text1" type="text" name="Prénom" placeholder="Prénom" required="">
-					<input class="text email" type="email" name="email" placeholder="Email" required="">
-					<input class="text" type="password" name="Mot de passe" placeholder="Mot de passe" required="">
-					<input class="text w3lpass" type="password" name="Confirmez votre mot de passe" placeholder="Confirmez votre mot de passe" required="">
-					<label for="civilite">Civilité</label>
-					<input name="civilite" value="Monsieur" checked="" type="checkbox" class="checkbox">Homme
-					<input name="civilite" value="Madame" checked="" type="checkbox" class="checkbox">Madame
-					<input name="civilite" value="Mademoiselle" checked="" type="checkbox" class="checkbox">Mademoiselle
-
+				<form action="" method="post">
+					<label class="anim">Civilité</label><br>
+						<div class="wthree-text">
+							<label class="anim">
+								<input name="civilite" type="radio" value="Monsieur" class="checkbox" required="">
+								<span>Homme</span><br>
+							</label>
+							<label class="anim">
+								<input name="civilite" type="radio" value="Madame" class="checkbox" required="">
+								<span>Madame</span><br>
+							</label>
+							<label class="anim">
+								<input name="civilite" type="radio" value="Mademoiselle" class="checkbox" required="">
+								<span>Mademoiselle</span><br>
+						</label>
+					<input class="text" type="text" name="nom" placeholder="Nom" required="">
+                    <input class="text1" type="text" name="prenom" placeholder="Prénom" required="">
+					<input class="text email" type="email" name="mail" placeholder="Email" required="">
+					<input class="text" type="password" name="mot_de_passe" placeholder="Mot de passe" required="">
+					<input class="text w3lpass" type="password" placeholder="Confirmez votre mot de passe" required="">
+						<div class="clear"> </div>
+					</div>
 					<div class="wthree-text">
 						<label class="anim">
 							<input type="checkbox" class="checkbox" required="">
@@ -41,11 +68,7 @@ require_once("../init/haut-page.php");
 				<p>Vous avez déjà un compte? <a href="./connexion.php">Connectez-vous maintenant!</a></p>
 			</div>
 		</div>
-
-
 	</div>
-    <!-- //main -->
-    
 <?php 
 require_once("../init/bas-page.php");
 ?>
