@@ -24,9 +24,10 @@ require_once("../init/haut-page-admin.php");
           $_POST[$indice] = htmlEntities(addSlashes($valeur));
       }
       executeRequete("REPLACE INTO chambres (Nom_chambre, capacite, douche, exposition, etage, tarif_id, photo) values ('$_POST[Nom_chambre]', '$_POST[capacite]', '$_POST[douche]', '$_POST[exposition]', '$_POST[etage]', '$_POST[tarif_id]', '$photo_bdd')");
-      echo '<div class="validation" style="background-color:white;">La chambre a été ajouté';
+      echo '<div class="validation" style="background-color:white;">La chambre a été modifier';
       $_GET['action'] = 'affichageChambres';
-      echo '<br> <br> <a href="Recap-chambre.php?action=affichageChambres" class="btn btn-primary">Retour à la gestion des chambres</a></div>';
+      echo '<input type="submit" class="btn btn-primary value="affichageChambres">';
+      
   }
 ?>
 
@@ -78,8 +79,6 @@ if(isset($_GET['action']) && ($_GET['action'] == 'ajoutChambres' || $_GET['actio
                
                    echo '<option value="1"'; if(isset($chambre_actuel) && $chambre_actuel['douche'] == '1') echo ' selected '; echo '>Douche</option>';
                     echo '<option value="0"'; if(isset($chambre_actuel) && $chambre_actuel['douche'] == '0') echo ' selected '; echo '>Baignoire</option>';
-                
-                
                 
             echo '</select>
             </div>
