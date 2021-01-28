@@ -21,23 +21,29 @@ if(!empty($_POST))
     }
     executeRequete("INSERT INTO chambres (Nom_chambre, capacite, exposition, douche, etage, tarif_id, photo) values ('$_POST[Nom_chambre]', '$_POST[capacite]', '$_POST[exposition]', '$_POST[douche]', '$_POST[etage]', '$_POST[tarif_id]','$photo_bdd')");
     
-    echo '<div class="validation">Le produit a été ajouté</div>';
+    echo '<div class="validation" style="background-color:white; padding-top:20px; padding:10px;">
+    <h2>Le produit a été ajouté</h2>';
+    echo '<a href="Recap-chambre.php?action=affichageChambres" class="btn btn-primary">Retour à la gestion des chambres</a></div>';
 }
-
-//$dchambre = executeRequete("SELECT DISTINCT * FROM chambres INNER JOIN tarifs ON chambres.tarif_id = tarifs.tarif_id"); 
-
 ?>
 
 <?php
 
- echo '<form method ="post" action="" enctype="multipart/form-data" style="background-color:white;">
+ echo '<form method ="post" action="" enctype="multipart/form-data" style="background-color:white; padding:10px;">
         <br>
         <div class="row">
             <div class="col">
               <input type="text" class="form-control" placeholder="Nom de la chambre" name="Nom_chambre">
             </div>
             <div class="col">
-              <input type="text" class="form-control" placeholder="Prix" name="tarif_id">
+              <select id="inputState" name="tarif_id" class="form-control">
+              <option selected>Prix</option>
+              <option value="1">38€</option>
+              <option value="2">49€</option>
+              <option value="3">53€</option>
+              <option value="4">58€</option>
+              <option value="5">68€</option>
+            </select>
             </div>
         </div>
         <br>

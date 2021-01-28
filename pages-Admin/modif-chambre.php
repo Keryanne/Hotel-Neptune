@@ -25,13 +25,14 @@ require_once("../init/haut-page-admin.php");
       }
       executeRequete("REPLACE INTO chambres (id_chambre, Nom_chambre, capacite, douche, exposition, etage, tarif_id, photo) values ('$_POST[id_chambre]', '$_POST[Nom_chambre]', '$_POST[capacite]', '$_POST[douche]', '$_POST[exposition]', '$_POST[etage]', '$_POST[tarif_id]', '$photo_bdd')");
 
-      echo '<div class="validation" style="background-color:white;">La chambre a été modifier';
+      echo '<div class="validation" style="background-color:white; padding-top:20px; padding:10px; ">
+      <h2>La chambre a été modifier</h2>';
       $_GET['action'] = 'affichageChambres';
-      echo '<input type="submit" class="btn btn-primary value="affichageChambres">';
+      echo '<a href="Recap-chambre.php?action=affichageChambres" class="btn btn-primary">Retour à la gestion des chambres</a></div>';
       
   }
 ?>
-
+<h2></h2>
 <?php
 if(isset($_GET['action']) && ($_GET['action'] == 'ajoutChambres' || $_GET['action'] == 'modificationChambres'))
 {
@@ -42,7 +43,7 @@ if(isset($_GET['action']) && ($_GET['action'] == 'ajoutChambres' || $_GET['actio
     }
 
 
- echo '<form action="" method="post" enctype="multipart/form-data" style="padding-bottom:10px; padding-left:10px; padding-right:10px; background-color:white;">
+ echo '<form action="" method="post" enctype="multipart/form-data" style="padding:10px; background-color:white; margin-top:0px;">
 
  <h2>Modification de la chambre</h2>
 
@@ -57,9 +58,14 @@ if(isset($_GET['action']) && ($_GET['action'] == 'ajoutChambres' || $_GET['actio
 
             <div class="col">
                 <label for="inputState">Prix</label>
-                <input type="text" class="form-control" id="prix" name="prix" placeholder=" Prix de la chambre" value="'; if(isset($chambre_actuel['prix'])) echo $chambre_actuel['prix']; echo '" >
-                <label for="inputState">ID Tarif</label>
-                <input type="text" class="form-control" id="tarif_id" name="tarif_id" placeholder=" Prix de la chambre" value="'; if(isset($chambre_actuel['tarif_id'])) echo $chambre_actuel['tarif_id']; echo '" >
+                <select id="inputState" name="tarif_id" class="form-control">
+                <option selected>...</option>
+                <option value="1"'; if(isset($chambre_actuel) && $chambre_actuel['tarif_id'] == '1') echo ' selected '; echo '>38€</option>
+                <option value="2"'; if(isset($chambre_actuel) && $chambre_actuel['tarif_id'] == '2') echo ' selected '; echo '>49€</option>
+                <option value="3"'; if(isset($chambre_actuel) && $chambre_actuel['tarif_id'] == '3') echo ' selected '; echo '>53€</option>
+                <option value="4"'; if(isset($chambre_actuel) && $chambre_actuel['tarif_id'] == '4') echo ' selected '; echo '>58€</option>
+                <option value="5"'; if(isset($chambre_actuel) && $chambre_actuel['tarif_id'] == '5') echo ' selected '; echo '>68€</option>
+              </select>
             </div>
         </div>
         <br>
@@ -122,4 +128,5 @@ if(isset($_GET['action']) && ($_GET['action'] == 'ajoutChambres' || $_GET['actio
 
 <?php 
 require_once("../init/bas-page.php");
+//<input type="text" class="form-control" id="prix" name="prix" placeholder=" Prix de la chambre" value="'; if(isset($chambre_actuel['prix'])) echo $chambre_actuel['prix']; echo '" >
 ?>

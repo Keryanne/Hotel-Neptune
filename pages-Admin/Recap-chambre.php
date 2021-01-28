@@ -15,7 +15,7 @@ if(isset($_GET['action']) && $_GET['action'] == "supressionChambres")
 
     if(!empty($chambre_a_supprimer['photo']) && file_exists($chemin_photo_a_supprimer)) unlink($chemin_photo_a_supprimer);
 
-    echo '<div class="validation">Suppression de la chambre : ' . $_GET['id_chambre'] . '</div>';
+    echo '<div class="validation" style="background-color:white;">Suppression de la chambre : ' . $_GET['id_chambre'] . '</div>';
     executeRequete("DELETE FROM planning WHERE id=$_GET[id_chambre]");
     executeRequete("DELETE FROM chambres WHERE id_chambre=$_GET[id_chambre]");
     $_GET['action'] = 'affichageChambres';
