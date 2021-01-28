@@ -20,7 +20,7 @@ if(isset($_GET['action']) && $_GET['action'] == "supressionClients")
 //MODIFICATION
 
 ?>
-
+<meta charset="utf-8">
 <link rel="stylesheet" href="<?php echo RACINE_SITE; ?>pages-Client/css/bootstrap.min.css">
 <link rel="stylesheet" href="<?php echo RACINE_SITE; ?>pages-Client/css/bootstrap.css">
 
