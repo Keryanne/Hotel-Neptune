@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 25 jan. 2021 à 10:33
+-- Généré le : jeu. 28 jan. 2021 à 22:41
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `chambres` (
   `photo` varchar(250) NOT NULL,
   PRIMARY KEY (`id_chambre`),
   KEY `tarif_id` (`tarif_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `chambres`
@@ -67,7 +67,7 @@ INSERT INTO `chambres` (`id_chambre`, `Nom_chambre`, `capacite`, `exposition`, `
 
 DROP TABLE IF EXISTS `clients`;
 CREATE TABLE IF NOT EXISTS `clients` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_client` int(11) NOT NULL AUTO_INCREMENT,
   `civilite` varchar(20) NOT NULL,
   `nom` varchar(100) NOT NULL,
   `prenom` varchar(70) NOT NULL,
@@ -76,18 +76,17 @@ CREATE TABLE IF NOT EXISTS `clients` (
   `ville` varchar(200) DEFAULT NULL,
   `pays_id` int(11) DEFAULT NULL,
   `mail` varchar(100) NOT NULL,
-  `mot_de_passe` varchar(100) NOT NULL,
+  `mot_de_passe` varchar(100) NOT NULL DEFAULT 'motdepasse',
   `utilisateur` int(11) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`id_client`),
   KEY `pays_id` (`pays_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=161 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=162 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `clients`
 --
 
-INSERT INTO `clients` (`id`, `civilite`, `nom`, `prenom`, `adresse`, `codePostal`, `ville`, `pays_id`, `mail`, `mot_de_passe`, `utilisateur`) VALUES
-(1, 'Mademoiselle', 'DUMAS', 'Sandrine', '5 allée des Tilleuls', '75010', 'PARIS', 1, 'nfujuejis@gmail.com', 'ertyhj', 1),
+INSERT INTO `clients` (`id_client`, `civilite`, `nom`, `prenom`, `adresse`, `codePostal`, `ville`, `pays_id`, `mail`, `mot_de_passe`, `utilisateur`) VALUES
 (2, 'Monsieur', 'MORIN', 'Karl', 'North avenue 44', 'TW9 3', 'KEW', 2, 'sfghj@gmail.com', 'ftyukj', 1),
 (3, 'Madame', 'MORIN', 'Joélle', '34 rue Saint Denis', '67000', 'STRASBOURG', 1, 'dertyui@outlook.com', 'cfresq', 1),
 (4, 'Mademoiselle', 'GAGNERON', 'Aurélie', '4 rue Laénnec', '01200', 'MONTANGES', 1, 'cvtresq@gmail.com', 'vhiuytr', 1),
@@ -256,7 +255,7 @@ INSERT INTO `clients` (`id`, `civilite`, `nom`, `prenom`, `adresse`, `codePostal
 DROP TABLE IF EXISTS `pays`;
 CREATE TABLE IF NOT EXISTS `pays` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(200) NOT NULL,
+  `nom_pays` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
@@ -264,7 +263,7 @@ CREATE TABLE IF NOT EXISTS `pays` (
 -- Déchargement des données de la table `pays`
 --
 
-INSERT INTO `pays` (`id`, `nom`) VALUES
+INSERT INTO `pays` (`id`, `nom_pays`) VALUES
 (1, 'France'),
 (2, 'Grande-Bretagne'),
 (3, 'Belgique'),
@@ -292,37 +291,6 @@ CREATE TABLE IF NOT EXISTS `planning` (
 --
 
 INSERT INTO `planning` (`id`, `jour`, `acompte`, `paye`, `client_id`) VALUES
-(1, '2020-10-01 00:00:00', 0, 0, 13),
-(1, '2020-10-04 00:00:00', 0, 0, 30),
-(1, '2020-10-08 00:00:00', 0, 0, 46),
-(1, '2020-10-09 00:00:00', 1, 0, 43),
-(1, '2020-10-11 00:00:00', 0, 0, 53),
-(1, '2020-10-12 00:00:00', 0, 0, 53),
-(1, '2020-10-18 00:00:00', 0, 0, 92),
-(1, '2020-10-21 00:00:00', 1, 1, 103),
-(1, '2020-10-23 00:00:00', 0, 0, 113),
-(1, '2020-10-26 00:00:00', 0, 0, 71),
-(1, '2020-10-27 00:00:00', 0, 0, 79),
-(1, '2020-10-29 00:00:00', 0, 0, 92),
-(1, '2021-03-19 00:00:00', 0, 0, 92),
-(1, '2021-03-20 00:00:00', 0, 0, 106),
-(1, '2021-04-24 00:00:00', 0, 0, 113),
-(1, '2021-04-25 00:00:00', 1, 0, 59),
-(1, '2021-04-28 00:00:00', 0, 0, 88),
-(1, '2021-06-02 00:00:00', 0, 0, 21),
-(1, '2021-07-01 00:00:00', 1, 1, 119),
-(1, '2021-07-02 00:00:00', 0, 0, 138),
-(1, '2021-07-03 00:00:00', 0, 1, 130),
-(1, '2021-07-04 00:00:00', 0, 0, 147),
-(1, '2021-07-05 00:00:00', 0, 0, 34),
-(1, '2021-07-06 00:00:00', 0, 0, 34),
-(1, '2021-07-07 00:00:00', 0, 0, 34),
-(1, '2021-07-20 00:00:00', 0, 1, 106),
-(1, '2021-07-21 00:00:00', 0, 1, 103),
-(1, '2021-07-29 00:00:00', 1, 1, 1),
-(1, '2021-08-05 00:00:00', 0, 0, 151),
-(1, '2021-08-06 00:00:00', 0, 0, 152),
-(1, '2021-08-07 00:00:00', 0, 0, 152),
 (2, '2020-10-01 00:00:00', 0, 0, 14),
 (2, '2020-10-02 00:00:00', 1, 0, 22),
 (2, '2020-10-04 00:00:00', 1, 0, 31),
@@ -376,33 +344,6 @@ INSERT INTO `planning` (`id`, `jour`, `acompte`, `paye`, `client_id`) VALUES
 (3, '2021-08-23 00:00:00', 0, 0, 114),
 (3, '2021-08-26 00:00:00', 1, 0, 73),
 (3, '2021-08-28 00:00:00', 1, 0, 90),
-(4, '2020-10-01 00:00:00', 0, 0, 4),
-(4, '2020-10-02 00:00:00', 0, 0, 4),
-(4, '2020-10-07 00:00:00', 1, 0, 43),
-(4, '2020-10-08 00:00:00', 0, 0, 48),
-(4, '2020-10-11 00:00:00', 0, 0, 55),
-(4, '2020-10-12 00:00:00', 0, 0, 55),
-(4, '2020-10-19 00:00:00', 1, 1, 102),
-(4, '2020-10-20 00:00:00', 0, 0, 108),
-(4, '2020-10-27 00:00:00', 0, 0, 62),
-(4, '2020-10-28 00:00:00', 0, 0, 74),
-(4, '2020-10-29 00:00:00', 1, 0, 94),
-(4, '2021-03-09 00:00:00', 1, 0, 46),
-(4, '2021-04-21 00:00:00', 1, 1, 106),
-(4, '2021-04-23 00:00:00', 0, 0, 115),
-(4, '2021-04-24 00:00:00', 0, 0, 115),
-(4, '2021-04-25 00:00:00', 0, 0, 62),
-(4, '2021-04-26 00:00:00', 0, 0, 62),
-(4, '2021-07-01 00:00:00', 0, 0, 122),
-(4, '2021-07-03 00:00:00', 0, 0, 122),
-(4, '2021-07-05 00:00:00', 1, 1, 154),
-(4, '2021-07-15 00:00:00', 1, 0, 36),
-(4, '2021-07-20 00:00:00', 0, 1, 108),
-(4, '2021-08-02 00:00:00', 0, 0, 122),
-(4, '2021-08-03 00:00:00', 0, 0, 4),
-(4, '2021-08-19 00:00:00', 0, 1, 102),
-(4, '2021-08-21 00:00:00', 0, 1, 106),
-(4, '2021-08-29 00:00:00', 0, 1, 94),
 (5, '2020-10-01 00:00:00', 0, 0, 16),
 (5, '2020-10-02 00:00:00', 0, 0, 16),
 (5, '2020-10-03 00:00:00', 0, 0, 16),
@@ -608,7 +549,7 @@ ALTER TABLE `clients`
 --
 ALTER TABLE `planning`
   ADD CONSTRAINT `planning_ibfk_1` FOREIGN KEY (`id`) REFERENCES `chambres` (`id_chambre`) ON DELETE CASCADE,
-  ADD CONSTRAINT `planning_ibfk_2` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`);
+  ADD CONSTRAINT `planning_ibfk_2` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id_client`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
