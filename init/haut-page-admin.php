@@ -55,10 +55,10 @@ if(!internauteEstConnecteEtEstAdmin())
             <a class="nav-link text-uppercase text-expanded" href="<?php echo RACINE_SITE; ?>pages-admin/Recap-chambre.php?action=affichageChambres">Gestion des Chambres</a>
           </li>
           <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="<?php echo RACINE_SITE; ?>pages-admin/admin-reservation.php?action=affichageReservations">Gestion des Réservations</a>
+            <a class="nav-link text-uppercase text-expanded" href="<?php echo RACINE_SITE; ?>pages-admin/Recap-reservation.php?action=affichageReservations">Gestion des Réservations</a>
           </li>
           <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="<?php echo RACINE_SITE; ?>pages-admin/admin-utilisateur.php?action=affichageClients">Gestion des Clients</a>
+            <a class="nav-link text-uppercase text-expanded" href="<?php echo RACINE_SITE; ?>pages-admin/Recap-client.php?action=affichageClients">Gestion des Clients</a>
           </li>
           <li class="nav-item px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="<?php echo RACINE_SITE; ?>init/deconnexion.php" style="display:flex; justify-content:end;"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-x-fill" viewBox="0 0 16 16">

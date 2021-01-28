@@ -32,7 +32,7 @@ require_once("../init/haut-page-admin.php");
       
   }
 ?>
-<h2></h2>
+
 <?php
 if(isset($_GET['action']) && ($_GET['action'] == 'ajoutChambres' || $_GET['action'] == 'modificationChambres'))
 {
