@@ -57,8 +57,7 @@ INSERT INTO `chambres` (`id_chambre`, `Nom_chambre`, `capacite`, `exposition`, `
 (9, 'Chambre double vue port', 2, 'port', 0, 3, 1, ''),
 (10, 'Chambre double vue rempart', 2, 'rempart', 0, 3, 2, ''),
 (11, 'Chambre double vue port', 2, 'port', 0, 3, 2, ''),
-(12, 'Chambre quadruple vue port', 4, 'port', 1, 3, 5, ''),
-(13, 'Chambre double vue rempart', 2, 'rempart', 1, 3, 1, '');
+(12, 'Chambre quadruple vue port', 4, 'port', 1, 3, 5, '');
 
 -- --------------------------------------------------------
 
@@ -279,12 +278,12 @@ INSERT INTO `pays` (`id`, `nom`) VALUES
 
 DROP TABLE IF EXISTS `planning`;
 CREATE TABLE IF NOT EXISTS `planning` (
-  `chambre_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `jour` datetime NOT NULL,
   `acompte` int(11) NOT NULL DEFAULT '0',
   `paye` int(11) NOT NULL DEFAULT '0',
   `client_id` int(11) NOT NULL,
-  PRIMARY KEY (`chambre_id`,`jour`,`client_id`),
+  PRIMARY KEY (`id`,`jour`,`client_id`),
   KEY `client_id` (`client_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -292,7 +291,7 @@ CREATE TABLE IF NOT EXISTS `planning` (
 -- Déchargement des données de la table `planning`
 --
 
-INSERT INTO `planning` (`chambre_id`, `jour`, `acompte`, `paye`, `client_id`) VALUES
+INSERT INTO `planning` (`id`, `jour`, `acompte`, `paye`, `client_id`) VALUES
 (1, '2020-10-01 00:00:00', 0, 0, 13),
 (1, '2020-10-04 00:00:00', 0, 0, 30),
 (1, '2020-10-08 00:00:00', 0, 0, 46),
@@ -608,7 +607,7 @@ ALTER TABLE `clients`
 -- Contraintes pour la table `planning`
 --
 ALTER TABLE `planning`
-  ADD CONSTRAINT `planning_ibfk_1` FOREIGN KEY (`chambre_id`) REFERENCES `chambres` (`id_chambre`),
+  ADD CONSTRAINT `planning_ibfk_1` FOREIGN KEY (`id`) REFERENCES `chambres` (`id_chambre`) ON DELETE CASCADE,
   ADD CONSTRAINT `planning_ibfk_2` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`);
 COMMIT;
 

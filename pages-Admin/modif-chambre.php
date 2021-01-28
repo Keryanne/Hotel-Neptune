@@ -23,7 +23,8 @@ require_once("../init/haut-page-admin.php");
       {
           $_POST[$indice] = htmlEntities(addSlashes($valeur));
       }
-      executeRequete("REPLACE INTO chambres (Nom_chambre, capacite, douche, exposition, etage, tarif_id, photo) values ('$_POST[Nom_chambre]', '$_POST[capacite]', '$_POST[douche]', '$_POST[exposition]', '$_POST[etage]', '$_POST[tarif_id]', '$photo_bdd')");
+      executeRequete("REPLACE INTO chambres (id_chambre, Nom_chambre, capacite, douche, exposition, etage, tarif_id, photo) values ('$_POST[id_chambre]', '$_POST[Nom_chambre]', '$_POST[capacite]', '$_POST[douche]', '$_POST[exposition]', '$_POST[etage]', '$_POST[tarif_id]', '$photo_bdd')");
+
       echo '<div class="validation" style="background-color:white;">La chambre a été modifier';
       $_GET['action'] = 'affichageChambres';
       echo '<input type="submit" class="btn btn-primary value="affichageChambres">';
