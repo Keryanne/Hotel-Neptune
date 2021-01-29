@@ -1,5 +1,5 @@
 <?php
-require_once("../init/init.php");
+require_once("../init/init-test.php");
 require_once("../init/haut-page-admin.php");
 ?>
 
@@ -27,7 +27,7 @@ if(isset($_GET['action']) && ($_GET['action'] == 'ajoutClients' || $_GET['action
     if(isset($_GET['id_client']))
     {
         $resultat = executeRequete("SELECT * FROM clients INNER JOIN pays ON clients.pays_id = pays.id WHERE id_client=$_GET[id_client] ");
-        $client_actuel = $resultat->fetch_assoc();
+        $client_actuel = $resultat->fetch();
     }
 
 

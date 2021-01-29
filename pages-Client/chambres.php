@@ -1,5 +1,5 @@
 <?php
-require_once("../init/init.php");
+require_once("../init/init-test.php");
 require_once("../init/haut-page.php");
 ?>
 
@@ -10,7 +10,7 @@ $donnees = executeRequete("SELECT DISTINCT * FROM chambres INNER JOIN tarifs ON 
 echo '<div style="align-items:center;">';
 
 
-    while($chambres = $donnees->fetch_assoc())
+    while($chambres = $donnees->fetch())
     {
       echo '<div style=" margin:20px; display:inline-block; vertical-align:middle;">
       <div class="card mb-3" style="max-width: 850px; margin-right:15px">
@@ -31,7 +31,7 @@ echo '<div style="align-items:center;">';
              
     }
     echo' </div> ';
-
+    $donnees ->closeCursor();
 ?>
 
 

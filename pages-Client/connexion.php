@@ -1,5 +1,5 @@
 <?php
-require_once("../init/init.php");
+require_once("../init/init-test.php");
 require_once("../init/haut-page.php");
 ?>
 
@@ -8,11 +8,11 @@ require_once("../init/haut-page.php");
 if($_POST)
 {
     // $contenu .=  "pseudo : " . $_POST['pseudo'] . "<br>mot_de_passe : " .  $_POST['mot_de_passe'] . "";
-    $resultat = executeRequete("SELECT * FROM clients WHERE mail='$_POST[mail]'");
-    if($resultat->num_rows != 0)
+    $resultat = $bdd->query("SELECT * FROM clients WHERE mail='$_POST[mail]'");
+    if($resultat->rowCount() != 0)
     {
         // $contenu .=  '<div style="background:green">pseudo connu!</div>';
-        $client = $resultat->fetch_assoc();
+        $client = $resultat->fetch();
         if($client['mot_de_passe'] == $_POST['mot_de_passe'])
         {
             //$contenu .= '<div class="validation">mot_de_passe connu!</div>';
@@ -42,7 +42,11 @@ if($_POST)
     {
         echo '<div class="erreur">Erreur de mail </div>';
     }
+
+    $resultat ->closeCursor();
+
 }
+
 
 ?>
 
@@ -76,7 +80,8 @@ if($_POST)
 
 	</div>
     <!-- //main -->
-    
+
+
 <?php 
 require_once("../init/bas-page.php");
 ?>

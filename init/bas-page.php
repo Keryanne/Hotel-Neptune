@@ -7,3 +7,4 @@
   <!-- Bootstrap core JavaScript -->
   <script src="<?php echo RACINE_SITE; ?>pages-Client/vendor/jquery/jquery.min.js"></script>
   <script src="<?php echo RACINE_SITE; ?>pages-Client//vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+

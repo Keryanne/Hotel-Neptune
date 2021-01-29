@@ -2,11 +2,11 @@
 
 function executeRequete($req)
 {
-    global $mysqli;
-    $resultat = $mysqli->query($req);
+    global $bdd;
+    $resultat = $bdd->query($req);
     if(!$resultat) // 
     {
-        die("Erreur sur la requete sql.<br>Message : " . $mysqli->error . "<br>Code: " . $req);
+        die("Erreur sur la requete sql.<br>Message : " . $bdd->error . "<br>Code: " . $req);
     }
     return $resultat; // 
 }
