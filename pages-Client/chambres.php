@@ -24,6 +24,7 @@ echo '<div style="align-items:center;">';
           <p class="card-text"><small class="text-muted">' . $chambres["prix"] . '€</small></p>
           <p class="card-text">Voici votre ' . $chambres["Nom_chambre"] . '</p>
           <a href="description-chambre.php?id_chambre='. $chambres['id_chambre'] .'" class="btn btn-primary">En savoir plus</a>
+          <a href="reservation.php?id_chambre='. $chambres['id_chambre'] .'" class="btn btn-primary">Réservez</a>
           </div>
         </div>
       </div>
