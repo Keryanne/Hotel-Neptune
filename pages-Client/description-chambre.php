@@ -38,7 +38,7 @@ if($donnees->num_rows <= 0)
             <div class="col-md-8">
             <div class="card-body">
                 <h5 class="card-title">'. $chambres['Nom_chambre'] .'</h5>
-                <p class="card-text"><small class="text-muted">'. $chambres['prix'] .'</small></p>
+                <p class="card-text"><small class="text-muted">'. $chambres['prix'] .'€</small></p>
                 <p class="card-text">Capacité : '. $chambres['capacite'] .' personnes</p>');
                
                 if($chambres['douche']==1)
