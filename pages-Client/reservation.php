@@ -38,18 +38,18 @@ require_once("../init/haut-page.php");
 	</div>
 
 
-	<form action="" class="container1 booking" name="booking">
+	<form action="#" class="container1 booking" name="booking">
 		
 		<div class="dates" data-type="none">
 			<label for="checkin">Date d'arrivée</label>
 			<div class="input-text">
-				<input type="datetime" value="9 Juin, 2021" id="checkin" readonly>
+				<input type="datetime" name="jour" value="9 Juin, 2021" id="checkin" readonly>
 				<div class="icon pop-up"></div>
 			</div>
 
 			<label for="checkout">Date de départ</label>
 			<div class="input-text">
-				<input type="datetime" value="16 Juin, 2021" id="checkout" readonly>
+				<input type="datetime" name="jour" value="16 Juin, 2021" id="checkout" readonly>
 				<div class="icon pop-up"></div>
 			</div>
 		</div>
@@ -82,7 +82,7 @@ require_once("../init/haut-page.php");
 			</li>
 		</ul>
 
-		<button class="button-big" id="search"><div class="icon"></div>Sélectionner une chambre</button>
+		<button class="button-big" type="submit" id="search"><div class="icon"></div>Sélectionner une chambre</button>
 	</form>
 
 <?php 
@@ -110,7 +110,7 @@ $('#add_event').on('click', function(){
     $('#overlay').fadeOut(300);
  	$('.calendar').fadeOut(300);
  	let id=($('.dates').data()).type;
- 	$('#' + id).val(value+" May, 2014");
+ 	$('#' + id).val(value+" Mai, 2021");
 }); 
 
 $('#search').on('click', function(e){

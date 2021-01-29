@@ -76,16 +76,12 @@ if($_POST)
 				<p>Vous n'avez pas de compte? <a href="./inscription.php">Inscrivez-vous maintenant!</a></p>
 			</div>
 		</div>
-<<<<<<< HEAD
-    </div>    
-=======
 
 
 	</div>
     <!-- //main -->
 
 
->>>>>>> 07ed0da28446b4a30315d216b5cfd256c0d9a712
 <?php 
 require_once("../init/bas-page.php");
 ?>
