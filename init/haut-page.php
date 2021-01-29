@@ -46,7 +46,7 @@
             <a class="nav-link text-uppercase text-expanded" href="<?php echo RACINE_SITE; ?>pages-Client/chambres.php">Chambres</a>
           </li>
           <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="#">Réservations</a>
+            <a class="nav-link text-uppercase text-expanded" href="<?php echo RACINE_SITE; ?>pages-Client/reservation.php"">Réservations</a>
           </li>
           <li class="nav-item px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="<?php echo RACINE_SITE; ?>pages-Client/inscription.php">Inscription</a>
