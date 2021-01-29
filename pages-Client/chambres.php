@@ -6,7 +6,7 @@ require_once("../init/haut-page.php");
 <?php
 
 
-$donnees = executeRequete("SELECT DISTINCT * FROM chambres INNER JOIN tarifs ON chambres.tarif_id = tarifs.tarif_id");  
+$donnees = $bdd->query("SELECT DISTINCT * FROM chambres INNER JOIN tarifs ON chambres.tarif_id = tarifs.tarif_id");  
 echo '<div style="align-items:center;">';
 
 
