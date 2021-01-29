@@ -1,5 +1,5 @@
 <?php
-require_once("../init/init.php");
+require_once("../init/init-test.php");
 require_once("../init/haut-page.php");
 ?>
 
@@ -15,7 +15,7 @@ require_once("../init/haut-page.php");
 if ($_POST)
 {
 	$clients = executeRequete("SELECT * FROM clients WHERE mail='$_POST[mail]'");
-    if($clients->num_rows > 0)
+    if($clients->rowCount() > 0)
 	{
         echo "<div class='erreur'>Mail déjà utilisé. Veuillez vous connecté.</div>";
 	}
@@ -32,6 +32,7 @@ if ($_POST)
 		
 		echo "<div class='validation'>Vous êtes inscrit à notre site web. <a href=\"connexion.php\"><u>Cliquez ici pour vous connecter</u></a></div>";
 	}
+	$clients ->closeCursor();
 }
 ?>
 
@@ -86,6 +87,8 @@ if ($_POST)
 			</div>
 		</div>
 	</div>
+
+
 <?php 
 require_once("../init/bas-page.php");
 ?>

@@ -1,5 +1,5 @@
 <?php
-require_once("../init/init.php");
+require_once("../init/init-test.php");
 require_once("../init/haut-page-admin.php");
 ?>
 
@@ -39,7 +39,7 @@ if(isset($_GET['action']) && ($_GET['action'] == 'ajoutChambres' || $_GET['actio
     if(isset($_GET['id_chambre']))
     {
         $resultat = executeRequete("SELECT * FROM chambres INNER JOIN tarifs ON chambres.tarif_id = tarifs.tarif_id WHERE id_chambre=$_GET[id_chambre] ");
-        $chambre_actuel = $resultat->fetch_assoc();
+        $chambre_actuel = $resultat->fetch();
     }
 
 
