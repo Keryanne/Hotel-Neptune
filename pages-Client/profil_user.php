@@ -24,7 +24,7 @@ info perso
   <div class="col-9" style="margin-left: 15px;">
     <div class="tab-content" id="v-pills-tabContent">
         <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-        <p>Informations utilisateur</p><p>Informations utilisateur</p><p>Informations utilisateur</p><p>Informations utilisateur</p><p>Informations utilisateur</p><p>Informations utilisateur</p>
+        <p>Nom : </p><p>Prénom : </p><p>Age : </p><p>Adresse email :</p><p>Informations utilisateur</p><p>Informations utilisateur</p>
         </div>
         
         <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
