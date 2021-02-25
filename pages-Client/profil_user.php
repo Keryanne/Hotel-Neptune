@@ -1,7 +1,6 @@
 <?php
-require_once("../init/init.php");
+require_once("../init/init-test.php");
 require_once("../init/haut-page.php");
-if(!internauteEstConnecte()) header("location:connexion.php");
 ?>
 
 <link rel="stylesheet" href="<?php echo RACINE_SITE; ?>pages-Client/css/boostrap.min.css ">
@@ -11,20 +10,41 @@ if(!internauteEstConnecte()) header("location:connexion.php");
 //bandeau
 info perso
 -->
-
-<div class="" style="background-color: white; padding: 1%; display: flex; flex-direction: row">
+<?php 
+echo '<div class="" style="background-color: white; padding: 1%; display: flex; flex-direction: row">
   <div class="col-3">
     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
       <a class="nav-link active" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="true">Profil</a>
       <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Contacts</a>
       <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Paramètres</a>
     </div>
-  </div>
+  </div>';
 
-  <div class="col-9" style="margin-left: 15px;">
+
+
+ /* if(isset($_GET['action']) && $_GET['action'] == "profilClient")
+  {*/
+    if(isset($_GET['id_client']))
+    {
+        $donnees = executeRequete("SELECT DISTINCT * FROM clients WHERE id_client = '$_GET[id_client]'");  
+    }
+
+    if($donnees->rowCount() <= 0) 
+{ 
+  header("location:connexion.php"); 
+  exit(); 
+}
+
+    $client = $donnees->fetch();
+    echo'
+    <div class="col-9" style="margin-left: 15px;">
     <div class="tab-content" id="v-pills-tabContent">
         <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-        <p>Nom : </p><p>Prénom : </p><p>Age : </p><p>Adresse email :</p><p>Informations utilisateur</p><p>Informations utilisateur</p>
+        <p id="nom" name="nom">Nom : '. $client['nom'] .'</p>
+        <p>Prénom : '. $client['prenom'] .'</p>
+        <p>Adresse email : '. $client['mail'] .'</p>
+        <p>Informations utilisateur</p>
+        <p>Informations utilisateur</p>
         </div>
         
         <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
@@ -32,7 +52,9 @@ info perso
         </div>
 
         <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-            <p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p>
+            <p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p>';
+            ?>
+            
             <a class="nav-link text-uppercase text-expanded" href="<?php echo RACINE_SITE; ?>init/deconnexion.php" style="display:flex; justify-content:end;"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-x-fill" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
             </svg></a>
@@ -42,34 +64,38 @@ info perso
   </div>
 </div>
 
+
 <!--
 //Historique
 Chambres déjà reservées
 -->
+<?php 
+    $planning = executeRequete("SELECT DISTINCT * FROM chambres INNER JOIN tarifs ON chambres.tarif_id = tarifs.tarif_id WHERE id_client=$_GET[id_client]");  
+    $planning->rowCount();
 
-<div style="background-color: #7C90DB; float: left; padding:8%; margin: 5%; border-radius: 100%;">
+echo '<div style="background-color: #7C90DB; float: left; padding:8%; margin: 5%; border-radius: 100%;">
     <h2>
-        Historique d'achat
+        Historique des chambres
     </h2>
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th scope="col">#</th>
                 <th scope="col">Date</th>
-                <th scope="col">Durée</th>
                 <th scope="col">Prix</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>//</td>
-                <td>//</td>
-                <td>//</td>
-            </tr>
+            <tr> ';
+            while($row = $planning->fetch(PDO::FETCH_ASSOC))
+            {
+                echo '<td>' . htmlspecialchars($row['jour']) . '</td>';
+                echo'<td>' . htmlspecialchars($row['prix']) . '</td>';
+            }
+            echo '</tr>
         </tbody>
     </table>
-</div>
+</div>';
+?>
 
 <!--
 //Chambres reservées

@@ -30,7 +30,7 @@ if($_POST)
 			}
 			else
 			{
-				header("location:profil_user.php");
+				header('location:profil_user.php?id_client='. $client['id_client'].'');
 			}
         }
         else
