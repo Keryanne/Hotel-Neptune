@@ -1,4 +1,4 @@
-<?php require_once("../init/init.php");?>
+<?php require_once("../init/init-test.php");?>
 <?php require_once("../init/haut-page.php");?>
 
 
@@ -21,13 +21,13 @@ if(isset($_GET['id_chambre']))
   $donnees = executeRequete("SELECT DISTINCT * FROM chambres,tarifs WHERE id_chambre = '$_GET[id_chambre]' AND chambres.tarif_id = tarifs.tarif_id");  
 }
 
-if($donnees->num_rows <= 0) 
+if($donnees->rowCount() <= 0) 
 { 
   header("location:chambres.php"); 
   exit(); 
 }
 
-    $chambres = $donnees->fetch_assoc();
+    $chambres = $donnees->fetch();
     
         echo ('<div style="display:flex; justify-content:center; margin-top:20px;">
         <div class="card mb-3" style="max-width: auto; margin-right:20px; margin-left:20px">
@@ -38,7 +38,7 @@ if($donnees->num_rows <= 0)
             <div class="col-md-8">
             <div class="card-body">
                 <h5 class="card-title">'. $chambres['Nom_chambre'] .'</h5>
-                <p class="card-text"><small class="text-muted">'. $chambres['prix'] .'</small></p>
+                <p class="card-text"><small class="text-muted">'. $chambres['prix'] .'€</small></p>
                 <p class="card-text">Capacité : '. $chambres['capacite'] .' personnes</p>');
                
                 if($chambres['douche']==1)

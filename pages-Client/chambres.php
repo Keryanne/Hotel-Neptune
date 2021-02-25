@@ -1,16 +1,16 @@
 <?php
-require_once("../init/init.php");
+require_once("../init/init-test.php");
 require_once("../init/haut-page.php");
 ?>
 
 <?php
 
 
-$donnees = executeRequete("SELECT DISTINCT * FROM chambres INNER JOIN tarifs ON chambres.tarif_id = tarifs.tarif_id");  
+$donnees = $bdd->query("SELECT DISTINCT * FROM chambres INNER JOIN tarifs ON chambres.tarif_id = tarifs.tarif_id");  
 echo '<div style="align-items:center;">';
 
 
-    while($chambres = $donnees->fetch_assoc())
+    while($chambres = $donnees->fetch())
     {
       echo '<div style=" margin:20px; display:inline-block; vertical-align:middle;">
       <div class="card mb-3" style="max-width: 850px; margin-right:15px">
@@ -21,9 +21,10 @@ echo '<div style="align-items:center;">';
         <div class="col-md-8">
           <div class="card-body">
           <h5 class="card-title">' . $chambres['Nom_chambre'] . '</h5>
-          <p class="card-text"><small class="text-muted">' . $chambres["prix"] . '</small></p>
+          <p class="card-text"><small class="text-muted">' . $chambres["prix"] . '€</small></p>
           <p class="card-text">Voici votre ' . $chambres["Nom_chambre"] . '</p>
-          <a href="description-chambre.php?id_chambre= '. $chambres['id_chambre'] .'" class="btn btn-primary">En savoir plus</a>
+          <a href="description-chambre.php?id_chambre='. $chambres['id_chambre'] .'" class="btn btn-primary">En savoir plus</a>
+          <a href="reservation.php?id_chambre='. $chambres['id_chambre'] .'" class="btn btn-primary">Réservez</a>
           </div>
         </div>
       </div>
@@ -31,7 +32,7 @@ echo '<div style="align-items:center;">';
              
     }
     echo' </div> ';
-
+    $donnees ->closeCursor();
 ?>
 
 
