@@ -11,7 +11,9 @@ require_once("../init/haut-page.php");
 info perso
 -->
 <?php 
-echo '<div class="" style="background-color: white; padding: 1%; display: flex; flex-direction: row">
+if(isset($_GET['action']) && $_GET['action'] == 'profilClient')
+{
+    echo '<div class="" style="background-color: white; padding: 1%; display: flex; flex-direction: row">
   <div class="col-3">
     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
       <a class="nav-link active" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="true">Profil</a>
@@ -20,13 +22,9 @@ echo '<div class="" style="background-color: white; padding: 1%; display: flex; 
     </div>
   </div>';
 
-
-
- /* if(isset($_GET['action']) && $_GET['action'] == "profilClient")
-  {*/
     if(isset($_GET['id_client']))
     {
-        $donnees = executeRequete("SELECT DISTINCT * FROM clients WHERE id_client = '$_GET[id_client]'");  
+        $donnees = executeRequete("SELECT DISTINCT * FROM clients INNER JOIN pays ON clients.pays_id = pays.id WHERE id_client = '$_GET[id_client]'");  
     }
 
     if($donnees->rowCount() <= 0) 
@@ -40,22 +38,37 @@ echo '<div class="" style="background-color: white; padding: 1%; display: flex; 
     <div class="col-9" style="margin-left: 15px;">
     <div class="tab-content" id="v-pills-tabContent">
         <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-        <p id="nom" name="nom">Nom : '. $client['nom'] .'</p>
-        <p>Prénom : '. $client['prenom'] .'</p>
-        <p>Adresse email : '. $client['mail'] .'</p>
-        <p>Informations utilisateur</p>
-        <p>Informations utilisateur</p>
+            <p>Civilité : '. $client['civilite'] .'</p>
+            <p>Nom : '. $client['nom'] .'</p>
+            <p>Prénom : '. $client['prenom'] .'</p>
+            <p>Adresse email : '. $client['mail'] .'</p>
+            <p>Mot de passe : '. $client['mot_de_passe'] .'</p>
+            <p>Adresse : '. $client['adresse'] .'</p>
+            <p>Code Postale : '. $client['codePostal'] .'</p>
+            <p>Ville : '. $client['ville'] .'</p>
+            <p>Pays : '. $client['nom_pays'] .'</p>
         </div>
         
         <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
         <p>Contacts Admins</p><p>Contacts Admins</p><p>Contacts Admins</p><p>Contacts Admins</p>
         </div>
 
-        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-            <p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p><p>Ici ce sont les paramètres</p>';
-            ?>
+        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">';
+        
+        echo '<td style="width:15%;"><a href="profil_user_modif.php?action=modificationProfil&id_client='. $client['id_client'] .'" style="color:black;"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+            </svg></a></td>
+            ';
+            echo '<td style="width:15%;"><a href="?action=supressionClients&id_client='. $client['id_client'] .'" style="color:black;"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+      </svg></a></td>
+      </tr>';
+}
+?>
             
-            <a class="nav-link text-uppercase text-expanded" href="<?php echo RACINE_SITE; ?>init/deconnexion.php" style="display:flex; justify-content:end;"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-x-fill" viewBox="0 0 16 16">
+            <a class="nav-link text-uppercase text-expanded" href="<?php echo RACINE_SITE; ?>init/deconnexion.php" style="display:flex; justify-content:end; color:black;"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-x-fill" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
             </svg></a>
         </div>
@@ -70,62 +83,29 @@ echo '<div class="" style="background-color: white; padding: 1%; display: flex; 
 Chambres déjà reservées
 -->
 <?php 
-    $planning = executeRequete("SELECT DISTINCT * FROM chambres INNER JOIN tarifs ON chambres.tarif_id = tarifs.tarif_id WHERE id_client=$_GET[id_client]");  
+    $planning = executeRequete("SELECT * FROM chambres, planning, tarifs, clients WHERE id_client = $_GET[id_client] AND chambres.tarif_id = tarifs.tarif_id AND chambres.id_chambre = planning.id AND clients.id_client = planning.client_id");  
     $planning->rowCount();
+
 
 echo '<div style="background-color: #7C90DB; float: left; padding:8%; margin: 5%; border-radius: 100%;">
     <h2>
         Historique des chambres
     </h2>
     <table class="table table-bordered">
-        <thead>
-            <tr>
                 <th scope="col">Date</th>
                 <th scope="col">Prix</th>
-            </tr>
-        </thead>
-        <tbody>
             <tr> ';
             while($row = $planning->fetch(PDO::FETCH_ASSOC))
             {
-                echo '<td>' . htmlspecialchars($row['jour']) . '</td>';
-                echo'<td>' . htmlspecialchars($row['prix']) . '</td>';
+                echo '<td>'. $row['jour'] .'</td>';
+                echo'<td>'. $row['prix'] .'</td>';
+                echo '</tr>';
             }
-            echo '</tr>
-        </tbody>
+            
+        echo '
     </table>
 </div>';
 ?>
-
-<!--
-//Chambres reservées
-arrivée
-durée
--->
-
-<div style="background-color: #7C90DB; float: right; padding:8%; margin: 5%; border-radius: 100%;">
-    <h2>
-        Chambre en réservation
-    </h2>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Date</th>
-                <th scope="col">Durée</th>
-                <th scope="col">Prix</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>//</td>
-                <td>//</td>
-                <td>//</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
 
 <!--
 //laisser un avis
