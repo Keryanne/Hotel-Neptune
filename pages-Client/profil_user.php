@@ -27,11 +27,11 @@ if(isset($_GET['action']) && $_GET['action'] == 'profilClient')
         $donnees = executeRequete("SELECT DISTINCT * FROM clients INNER JOIN pays ON clients.pays_id = pays.id WHERE id_client = '$_GET[id_client]'");  
     }
 
-    if($donnees->rowCount() <= 0) 
+    /*if($donnees->rowCount() <= 0) 
 { 
   header("location:connexion.php"); 
   exit(); 
-}
+}*/
 
     $client = $donnees->fetch();
     echo'
