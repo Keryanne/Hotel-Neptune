@@ -5,6 +5,16 @@ require_once("../init/haut-page.php");
 
 <?php 
 
+    $resultat = $bdd->query("SELECT * FROM clients");
+    if($resultat->rowCount() != 0)
+    {
+        $client = $resultat->fetch();
+    if(internauteEstConnecte())
+    {
+        header("location:profil_user.php?action=profilClient&id_client=".$client['id_client']."");
+    }
+}
+
 if($_POST)
 {
     // $contenu .=  "pseudo : " . $_POST['pseudo'] . "<br>mot_de_passe : " .  $_POST['mot_de_passe'] . "";
@@ -24,11 +34,11 @@ if($_POST)
                 }
 			}
 			
-			if ($client['utilisateur'] == '0') 
+			if (internauteEstConnecteEtEstAdmin()) 
 			{
 				header('location: ../pages-Admin/index-admin.php');      
 			}
-			else
+			else if(internauteEstConnecte())
 			{
 				header("location:profil_user.php?action=profilClient&id_client=".$client['id_client']."");
 			}

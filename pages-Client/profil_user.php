@@ -25,18 +25,13 @@ if(isset($_GET['action']) && $_GET['action'] == 'profilClient')
     if(isset($_GET['id_client']))
     {
         $donnees = executeRequete("SELECT DISTINCT * FROM clients INNER JOIN pays ON clients.pays_id = pays.id WHERE id_client = '$_GET[id_client]'");  
-    }
-
-    /*if($donnees->rowCount() <= 0) 
-{ 
-  header("location:connexion.php"); 
-  exit(); 
-}*/
-
-    $client = $donnees->fetch();
-    echo'
-    <div class="col-9" style="margin-left: 15px;">
-    <div class="tab-content" id="v-pills-tabContent">
+        if($donnees->rowCount() != 0) 
+        { 
+            $client = $donnees->fetch();
+     
+        echo'
+        <div class="col-9" style="margin-left: 15px;">
+        <div class="tab-content" id="v-pills-tabContent">
         <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
             <p>Civilité : '. $client['civilite'] .'</p>
             <p>Nom : '. $client['nom'] .'</p>
@@ -65,7 +60,10 @@ if(isset($_GET['action']) && $_GET['action'] == 'profilClient')
             <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
       </svg></a></td>
       </tr>';
+        }
+    }
 }
+
 ?>
             
             <a class="nav-link text-uppercase text-expanded" href="<?php echo RACINE_SITE; ?>init/deconnexion.php" style="display:flex; justify-content:end; color:black;"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-x-fill" viewBox="0 0 16 16">
@@ -83,11 +81,12 @@ if(isset($_GET['action']) && $_GET['action'] == 'profilClient')
 Chambres déjà reservées
 -->
 <?php 
+if(isset($_GET['id_client']))
+{
     $planning = executeRequete("SELECT * FROM chambres, planning, tarifs, clients WHERE id_client = $_GET[id_client] AND chambres.tarif_id = tarifs.tarif_id AND chambres.id_chambre = planning.id AND clients.id_client = planning.client_id");  
-    $planning->rowCount();
-
-
-echo '<div style="background-color: #7C90DB; float: left; padding:8%; margin: 5%; border-radius: 100%;">
+    if($planning->rowCount()) 
+    { 
+    echo '<div style="background-color: #7C90DB; float: left; padding:8%; margin: 5%; border-radius: 100%;">
     <h2>
         Historique des chambres
     </h2>
@@ -101,10 +100,13 @@ echo '<div style="background-color: #7C90DB; float: left; padding:8%; margin: 5%
                 echo'<td>'. $row['prix'] .'</td>';
                 echo '</tr>';
             }
+        }
+    }
             
         echo '
     </table>
 </div>';
+        
 ?>
 
 <!--
