@@ -17,7 +17,7 @@ if ($_POST)
 	$clients = executeRequete("SELECT * FROM clients WHERE mail='$_POST[mail]'");
     if($clients->rowCount() > 0)
 	{
-        echo "<div class='erreur'>Mail déjà utilisé. Veuillez vous connecté.</div>";
+        echo "<div class='erreur' style='background-color:white; width:500px; padding-top:30px; padding:10px; border-radius:30px; text-align:center; justifiy-content:center; margin-left:auto; margin-right:auto;'>Mail déjà utilisé. Veuillez vous connecté.</div>";
 	}
 	
     else
@@ -30,7 +30,7 @@ if ($_POST)
 		
 		executeRequete("INSERT INTO clients (`civilite`, `nom`, `prenom`, `adresse`, `codePostal`, `ville`, `pays_id`, `mail`, `mot_de_passe`) VALUES('$_POST[civilite]','$_POST[nom]','$_POST[prenom]', '$_POST[adresse]', '$_POST[codePostal]', '$_POST[ville]', '$_POST[pays_id]', '$_POST[mail]','$_POST[mot_de_passe]')");
 		
-		echo "<div class='validation'>Vous êtes inscrit à notre site web. <a href=\"connexion.php\"><u>Cliquez ici pour vous connecter</u></a></div>";
+		echo "<div class='validation' style='background-color:white; width:500px; padding-top:30px; padding:10px; border-radius:30px; text-align:center; justifiy-content:center; margin-left:auto; margin-right:auto;'>Vous êtes inscrit à notre site web. <a href=\"connexion.php\"><u style='text-decoration: none;'>Cliquez ici pour vous connecter</u></a></div>";
 	}
 	$clients ->closeCursor();
 }
