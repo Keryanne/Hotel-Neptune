@@ -55,7 +55,7 @@ if(!internauteEstConnecteEtEstAdmin())
             <a class="nav-link text-uppercase text-expanded" href="<?php echo RACINE_SITE; ?>pages-admin/Recap-chambre.php?action=affichageChambres">Gestion des Chambres</a>
           </li>
           <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="<?php echo RACINE_SITE; ?>pages-admin/Recap-reservation.php?action=affichageReservations">Gestion des Réservations</a>
+            <a class="nav-link text-uppercase text-expanded" href="<?php echo RACINE_SITE; ?>pages-admin/Recap-reservation.php?action=affichageReservation">Gestion des Réservations</a>
           </li>
           <li class="nav-item px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="<?php echo RACINE_SITE; ?>pages-admin/Recap-client.php?action=affichageClients">Gestion des Clients</a>
