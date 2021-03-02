@@ -6,7 +6,7 @@ require_once("../init/haut-page.php");
 <?php
 
 
-$donnees = executeRequete("SELECT DISTINCT * FROM chambres INNER JOIN tarifs ON chambres.tarif_id = tarifs.tarif_id");  
+$donnees = $bdd->query("SELECT DISTINCT * FROM chambres INNER JOIN tarifs ON chambres.tarif_id = tarifs.tarif_id");  
 echo '<div style="align-items:center;">';
 
 
@@ -24,6 +24,7 @@ echo '<div style="align-items:center;">';
           <p class="card-text"><small class="text-muted">' . $chambres["prix"] . '€</small></p>
           <p class="card-text">Voici votre ' . $chambres["Nom_chambre"] . '</p>
           <a href="description-chambre.php?id_chambre='. $chambres['id_chambre'] .'" class="btn btn-primary">En savoir plus</a>
+          <a href="reservation.php?id_chambre='. $chambres['id_chambre'] .'" class="btn btn-primary">Réservez</a>
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@ function executeRequete($req)
     $resultat = $bdd->query($req);
     if(!$resultat) // 
     {
-        die("Erreur sur la requete sql.<br>Message : " . $bdd->error . "<br>Code: " . $req);
+        die("Erreur sur la requete sql.<br>Message : " . $bdd->errorCode() . "<br>Code: " . $req);
     }
     return $resultat; // 
 }
