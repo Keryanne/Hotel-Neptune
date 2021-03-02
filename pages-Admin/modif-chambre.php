@@ -34,6 +34,11 @@ require_once("../init/haut-page-admin.php");
 ?>
 
 <?php
+
+
+?>
+
+<?php
 if(isset($_GET['action']) && ($_GET['action'] == 'ajoutChambres' || $_GET['action'] == 'modificationChambres'))
 {
     if(isset($_GET['id_chambre']))
@@ -42,10 +47,15 @@ if(isset($_GET['action']) && ($_GET['action'] == 'ajoutChambres' || $_GET['actio
         $chambre_actuel = $resultat->fetch();
     }
 
+    
+
+ 
 
  echo '<form action="" method="post" enctype="multipart/form-data" style="padding:10px; background-color:white; margin-top:0px;">
 
  <h2>Modification de la chambre</h2>
+
+
 
  <input type="hidden" id="id_chambre" name="id_chambre" value="'; if(isset($chambre_actuel['id_chambre'])) echo $chambre_actuel['id_chambre']; echo '">
 
