@@ -6,11 +6,26 @@ require_once("../init/haut-page.php");
 <link rel="stylesheet" href="<?php echo RACINE_SITE; ?>pages-Client/css/boostrap.min.css ">
 <link href="css/business-casual.min.css" rel="stylesheet">
 
-<!--
+
+<?php 
+
+//SUPRESSION 
+
+if(isset($_GET['action']) && $_GET['action'] == "supressionProfil")
+{   
+    $resultat = executeRequete("SELECT * FROM clients INNER JOIN pays ON clients.pays_id = pays.id WHERE id_client='$_GET[id_client]'");
+    $client_a_supprimer = $resultat->fetch();
+
+   // echo '<div class="validation" style="background-color:white;">Votre compte a bien été suprimer</div>';
+    executeRequete("DELETE FROM clients WHERE id_client='$_GET[id_client]'");
+    header('location: ../index.php');
+}
+
+/*
 //bandeau
 info perso
--->
-<?php 
+*/
+
 if(isset($_GET['action']) && $_GET['action'] == 'profilClient')
 {
     echo '<div class="" style="background-color: white; padding: 1%; display: flex; flex-direction: row">
@@ -55,7 +70,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'profilClient')
             <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
             </svg></a></td>
             ';
-            echo '<td style="width:15%;"><a href="?action=supressionClients&id_client='. $client['id_client'] .'" style="color:black;"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+            echo '<td style="width:15%;"><a href="?action=supressionProfil&id_client='. $client['id_client'] .'" style="color:black;"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
             <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
       </svg></a></td>

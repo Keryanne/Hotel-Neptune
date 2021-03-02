@@ -10,10 +10,6 @@ require_once("../init/haut-page.php");
 
   if(!empty($_POST))
   {   // debug($_POST);
-    $resultat = $bdd->query("SELECT * FROM clients");
-    if($resultat->rowCount() != 0)
-    {
-    $client = $resultat->fetch();
       foreach($_POST as $indice => $valeur)
       {
         $_POST[$indice] = htmlEntities(addSlashes($valeur));
@@ -23,9 +19,16 @@ require_once("../init/haut-page.php");
       echo '<div class="validation" style="background-color:white; padding-top:20px; padding:10px; ">
       <h2>Votre profil a été modifier</h2>';
       $_GET['action'] = 'profilClient';
-     echo '<a href="profil_user.php?action=profilClient&id_client='. $client['id_client'] .'" class="btn btn-primary">Retour au profil</a></div>';
+      if(isset($_GET['id_client']))
+      {
+        $resultat = $bdd->query("SELECT * FROM clients WHERE id_client = '$_GET[id_client]'");
+        if($resultat->rowCount() != 0)
+        {
+          $client = $resultat->fetch();
+          echo '<a href="profil_user.php?action=profilClient&id_client='. $client['id_client'] .'" class="btn btn-primary">Retour au profil</a></div>';
+        }
+      }
     }
-}
 ?>
 
 <?php
@@ -36,7 +39,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'modificationProfil')
     {
             if(isset($_GET['id_client']))
             {
-                $donneeProfil = executeRequete("SELECT * FROM clients INNER JOIN pays ON clients.pays_id = pays.id WHERE id_client=$_GET[id_client] ");
+                $donneeProfil = executeRequete("SELECT * FROM clients INNER JOIN pays ON clients.pays_id = pays.id WHERE id_client='$_GET[id_client]'");
                 $profil_actuel = $donneeProfil->fetch();
             }
             echo '<div class="" style="background-color: white; padding: 1%; display: flex; flex-direction: row">

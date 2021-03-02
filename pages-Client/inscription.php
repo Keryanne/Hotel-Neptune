@@ -28,7 +28,7 @@ if ($_POST)
             $_POST[$indice] = htmlEntities(addSlashes($valeur));
 		}
 		
-		executeRequete("INSERT INTO clients (`civilite`, `nom`, `prenom`, `mail`, `mot_de_passe`) VALUES('$_POST[civilite]','$_POST[nom]','$_POST[prenom]','$_POST[mail]','$_POST[mot_de_passe]')");
+		executeRequete("INSERT INTO clients (`civilite`, `nom`, `prenom`, `adresse`, `codePostal`, `ville`, `pays_id`, `mail`, `mot_de_passe`) VALUES('$_POST[civilite]','$_POST[nom]','$_POST[prenom]', '$_POST[adresse]', '$_POST[codePostal]', '$_POST[ville]', '$_POST[pays_id]', '$_POST[mail]','$_POST[mot_de_passe]')");
 		
 		echo "<div class='validation'>Vous êtes inscrit à notre site web. <a href=\"connexion.php\"><u>Cliquez ici pour vous connecter</u></a></div>";
 	}
@@ -70,6 +70,19 @@ if ($_POST)
 					<input class="text" type="text" name="nom" placeholder="Nom" required="">
                     <input class="text1" type="text" name="prenom" placeholder="Prénom" required="">
 					<input class="text email" type="email" name="mail" placeholder="Email" required="">
+					<input class="text email" type="text" name="adresse" placeholder="Adresse" required="">
+					<input class="text" type="nombre" name="codePostal" placeholder="Code Postal" required="">
+					<input class="text email" type="text" name="ville" placeholder="Ville" required="">
+					<div class="text1">
+						<select id="inputState" name="pays_id" class="text1">
+						<option selected>Pays</option>
+						<option value="1">France</option>
+						<option value="2">Grande-Bretagne</option>
+						<option value="3">Belgique</option>
+						<option value="4">Suisse</option>
+						</select>
+					</div>
+					<br>
 					<input class="text" type="password" name="mot_de_passe" placeholder="Mot de passe" required="">
 					<input class="text w3lpass" type="password" placeholder="Confirmez votre mot de passe" required="">
 						<div class="clear"> </div>

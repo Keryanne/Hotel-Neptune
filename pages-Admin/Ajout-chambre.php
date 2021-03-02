@@ -22,7 +22,7 @@ if(!empty($_POST))
     executeRequete("INSERT INTO chambres (Nom_chambre, capacite, exposition, douche, etage, tarif_id, photo) values ('$_POST[Nom_chambre]', '$_POST[capacite]', '$_POST[exposition]', '$_POST[douche]', '$_POST[etage]', '$_POST[tarif_id]','$photo_bdd')");
     
     echo '<div class="validation" style="background-color:white; padding-top:20px; padding:10px;">
-    <h2>Le produit a été ajouté</h2>';
+    <h2>La chambre a été ajouté</h2>';
     echo '<a href="Recap-chambre.php?action=affichageChambres" class="btn btn-primary">Retour à la gestion des chambres</a></div>';
 }
 ?>

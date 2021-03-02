@@ -11,7 +11,7 @@ require_once("../init/haut-page-admin.php");
       {
           $_POST[$indice] = htmlEntities(addSlashes($valeur));
       }
-      executeRequete("REPLACE INTO clients (id_client, civilite, nom, prenom, adresse, codePostal, ville, pays_id, mail, mot_de_passe) values ('$_POST[id_client]', '$_POST[civilite]', '$_POST[nom]', '$_POST[prenom]', '$_POST[adresse]', '$_POST[codePostal]', '$_POST[ville]', '$_POST[pays_id]', '$_POST[mail]', '$_POST[mot_de_passe]')");
+      $bdd->query("REPLACE INTO clients (id_client, civilite, nom, prenom, adresse, codePostal, ville, pays_id, mail, mot_de_passe) values ('$_POST[id_client]', '$_POST[civilite]', '$_POST[nom]', '$_POST[prenom]', '$_POST[adresse]', '$_POST[codePostal]', '$_POST[ville]', '$_POST[pays_id]', '$_POST[mail]', '$_POST[mot_de_passe]')");
 
       echo '<div class="validation" style="background-color:white; padding-top:20px; padding:10px; ">
       <h2>Le client a été modifier</h2>';
@@ -26,7 +26,7 @@ if(isset($_GET['action']) && ($_GET['action'] == 'ajoutClients' || $_GET['action
 {
     if(isset($_GET['id_client']))
     {
-        $resultat = executeRequete("SELECT * FROM clients INNER JOIN pays ON clients.pays_id = pays.id WHERE id_client=$_GET[id_client] ");
+        $resultat = executeRequete("SELECT * FROM clients INNER JOIN pays ON clients.pays_id = pays.id WHERE id_client='$_GET[id_client]' ");
         $client_actuel = $resultat->fetch();
     }
 
