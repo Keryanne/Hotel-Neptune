@@ -60,7 +60,9 @@ if(isset($_GET['action']) && $_GET['action'] == 'profilClient')
         </div>
         
         <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-        <p>Contacts Admins</p><p>Contacts Admins</p><p>Contacts Admins</p><p>Contacts Admins</p>
+        <p>Accueil : 04 20 69 78 10</p>
+        <p>Responsable : 04 60 48 52 69</p>
+        <p>Spa : 04 26 58 79 20</p>
         </div>
 
         <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">';
@@ -98,7 +100,7 @@ Chambres déjà reservées
 <?php 
 if(isset($_GET['id_client']))
 {
-    $planning = executeRequete("SELECT * FROM chambres, planning, tarifs, clients WHERE id_client = $_GET[id_client] AND chambres.tarif_id = tarifs.tarif_id AND chambres.id_chambre = planning.id AND clients.id_client = planning.client_id");  
+    $planning = executeRequete("SELECT * FROM chambres, planning, tarifs, clients WHERE id_client = '$_GET[id_client]' AND chambres.tarif_id = tarifs.tarif_id AND chambres.id_chambre = planning.id AND clients.id_client = planning.client_id");  
     if($planning->rowCount()) 
     { 
     echo '<div style="background-color: #7C90DB; float: left; padding:8%; margin: 5%; border-radius: 100%;">
