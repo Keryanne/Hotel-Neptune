@@ -4,7 +4,38 @@ require_once("../init/haut-page.php");
 ?>
 
 <head><link rel="stylesheet" href="<?php echo RACINE_SITE; ?>pages-Client/css/reservation.css"></head>
+<?php
+//On teste si le formulaire a été soumis
+	if ((isset($_POST['civilite'])) && (isset($_POST['nom']))	&& (isset($_POST['prenom'])) && (isset($_POST['mail'])) && (isset($_POST['mot_de_passe']) ))
+	
+	//on teste si tous les champs du formulaire sont remplits
+	if ((!empty($_POST['civilite'])) && (!empty($_POST['nom']))	&& (!empty($_POST['prenom'])) && (!empty($_POST['mail'])) && (!empty($_POST['mot_de_passe'])))
+?>
 
+<?php
+if ($_POST)
+{
+	$planning = executeRequete("SELECT * FROM planning WHERE jour='$_POST[jour]'");
+    if($planning->rowCount() > 0)
+	{
+        echo "<div class='erreur'>Cette date est indisponible. Veuillez en sélectionner une autre.</div>";
+	}
+	
+    else
+    {
+        
+        foreach($_POST as $indice => $valeur)
+        {
+            $_POST[$indice] = htmlEntities(addSlashes($valeur));
+		}
+		
+		executeRequete("INSERT INTO planning (`chambre_id`, `jour`, `acompte`, `paye`, `client_id`) VALUES('$_POST[chambre_id]','$_POST[jour]','$_POST[acompte]','$_POST[paye]','$_POST[client_id]')");
+		
+		echo "<div class='validation'>Votre réservation a bien été prise en compte.</div>";
+	}
+	$planning ->closeCursor();
+}
+?>
 <div id="overlay"></div>
 	<div class="container1 calendar">
 		<div class="header">
@@ -34,11 +65,11 @@ require_once("../init/haut-page.php");
 				<td class="notCurMonth">1</td><td class="notCurMonth">2</td class="notCurMonth"><td class="notCurMonth">3</td>
 			</tr>
 		</table>
-		<button class="button-big" id="add_event">Add event</button>
+		<button class="button-big" id="add_event">Choisir cette date</button>
 	</div>
 
 
-	<form action="#" class="container1 booking" name="booking">
+	<form action="http://localhost/Projet-PHP/pages-Client/chambres.php" class="container1 booking" name="booking">
 		
 		<div class="dates" data-type="none">
 			<label for="checkin">Date d'arrivée</label>
@@ -56,26 +87,17 @@ require_once("../init/haut-page.php");
 		
 		<ul class="persons">
 			<li>
-				<label>Adultes</label>
+				<label>Personnes</label>
 				<div class="input-text">
 					<select name="adults">
-						<option value="1">1</option>
-						<option value="2" selected="selected">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>   
-					</select>
-					<div class="icon"></div>
-				</div>
-			</li>
-			<li>
-				<label>Enfants</label>
-				<div class="input-text">
-					<select name="children">
-						<option value="0">0</option>
-						<option value="1" selected="selected">1</option>
+						<option value="1"selected="selected">1</option>
 						<option value="2">2</option>
 						<option value="3">3</option>
 						<option value="4">4</option>   
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
 					</select>
 					<div class="icon"></div>
 				</div>
@@ -113,8 +135,4 @@ $('#add_event').on('click', function(){
  	$('#' + id).val(value+" Mai, 2021");
 }); 
 
-$('#search').on('click', function(e){
-	$('.booking').addClass('is-sent');
-	e.preventDefault();
-});
 });	</script>
