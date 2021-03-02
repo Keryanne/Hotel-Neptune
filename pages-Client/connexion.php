@@ -35,12 +35,16 @@ if($_POST)
         }
         else
         {
-            echo '<div class="erreur">Erreur de mot de passe</div>';
+           echo'<div class="validation" style="background-color:white; width:500px; padding-top:30px; padding:10px; border-radius:30px; text-align:center; justifiy-content:center; margin-left:auto; margin-right:auto;">
+                <h2>Erreur de mot de passe</h2>
+                </div>';
         }       
     }
     else
     {
-        echo '<div class="erreur">Erreur de mail </div>';
+        echo'<div class="validation" style="background-color:white; width:500px; padding-top:30px; padding:10px; border-radius:30px; text-align:center; justifiy-content:center; margin-left:auto; margin-right:auto;">
+                    <h2>Erreur de mail</h2>
+            </div>';
     }
 
     $resultat ->closeCursor();
