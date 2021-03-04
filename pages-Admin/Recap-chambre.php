@@ -11,9 +11,6 @@ if(isset($_GET['action']) && $_GET['action'] == "supressionChambres")
 {   
     $resultat = executeRequete("SELECT * FROM planning, chambres INNER JOIN tarifs ON chambres.tarif_id = tarifs.tarif_id WHERE id_chambre=$_GET[id_chambre]");
     $chambre_a_supprimer = $resultat->fetch();
-    $chemin_photo_a_supprimer = $_SERVER['DOCUMENT_ROOT'] . $chambre_a_supprimer['photo'];
-
-    if(!empty($chambre_a_supprimer['photo']) && file_exists($chemin_photo_a_supprimer)) unlink($chemin_photo_a_supprimer);
 
     echo '<div class="validation" style="background-color:white;">Suppression de la chambre : ' . $_GET['id_chambre'] . '</div>';
     executeRequete("DELETE FROM planning WHERE id=$_GET[id_chambre]");
@@ -125,7 +122,6 @@ echo '</br>';
         <th>Douche / Baignoire</th>
         <th>Exposition</th>
         <th>Prix</th>
-        <th>Photo</th>
         <th scope="col">Modification</th>
         <th scope="col">Suppression</th>
         </tr>
@@ -139,7 +135,6 @@ echo '</br>';
             echo '<td>' . htmlspecialchars($row['douche']) . '</td>';
             echo '<td>' . htmlspecialchars($row['exposition']) . '</td>';
             echo '<td>' . htmlspecialchars($row['prix']) . '</td>';
-            echo '<td><img src="' . htmlspecialchars($row['photo']) . '" ="70" height="70"></td>';
         
             echo '<td style="width:15%;"><a href="modif-chambre.php?action=modificationChambres&id_chambre='. $row['id_chambre'] .'" style="color:black;"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                 <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>

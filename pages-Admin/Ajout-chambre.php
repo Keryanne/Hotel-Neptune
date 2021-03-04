@@ -7,19 +7,11 @@ require_once("../init/haut-page-admin.php");
 
 if(!empty($_POST))
 {   // debug($_POST);
-  $photo_bdd = ""; 
-    if(!empty($_FILES['photo']['name']))
-    {   // debug($_FILES);
-        $nom_photo = $_POST['reference'] . '_' .$_FILES['photo']['name'];
-        $photo_bdd = RACINE_SITE . "photo/$nom_photo";
-        $photo_dossier = $_SERVER['DOCUMENT_ROOT'] . RACINE_SITE . "/image/$nom_photo"; 
-        copy($_FILES['photo']['tmp_name'],$photo_dossier);
-    }
     foreach($_POST as $indice => $valeur)
     {
         $_POST[$indice] = htmlEntities(addSlashes($valeur));
     }
-    executeRequete("INSERT INTO chambres (Nom_chambre, capacite, exposition, douche, etage, tarif_id, photo) values ('$_POST[Nom_chambre]', '$_POST[capacite]', '$_POST[exposition]', '$_POST[douche]', '$_POST[etage]', '$_POST[tarif_id]','$photo_bdd')");
+    executeRequete("INSERT INTO chambres (Nom_chambre, capacite, exposition, douche, etage, tarif_id) values ('$_POST[Nom_chambre]', '$_POST[capacite]', '$_POST[exposition]', '$_POST[douche]', '$_POST[etage]', '$_POST[tarif_id]')");
     
     echo '<div class="validation" style="background-color:white; padding-top:20px; padding:10px;">
     <h2>La chambre a été ajouté</h2>';
@@ -85,11 +77,6 @@ if(!empty($_POST))
                   <option>Rempart</option>
             </select>
             </div>
-        <br>
-        <div class="form-group">
-            <label for="exampleFormControlFile1">Photos</label><br>
-            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="photo">
-        </div>
         <br>
         <input type="submit" class="btn btn-primary" value="Ajouter">
     </form>';

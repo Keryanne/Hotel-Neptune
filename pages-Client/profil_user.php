@@ -17,6 +17,7 @@ if(isset($_GET['action']) && $_GET['action'] == "supressionProfil")
     $client_a_supprimer = $resultat->fetch();
 
    // echo '<div class="validation" style="background-color:white;">Votre compte a bien été suprimer</div>';
+    executeRequete("DELETE FROM planning WHERE client_id='$_GET[id_client]'");
     executeRequete("DELETE FROM clients WHERE id_client='$_GET[id_client]'");
     header('location: ../index.php');
 }

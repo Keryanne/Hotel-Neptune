@@ -4,12 +4,6 @@ require_once("../init/haut-page.php");
 ?>
 
 <head><link rel="stylesheet" href="<?php echo RACINE_SITE; ?>pages-Client/css/reservation.css"></head>
-<?php
-if(!internauteEstConnecte())
-{
-	header("location:connexion.php");
-}
-?>
 
 <?php
 if ($_POST)
