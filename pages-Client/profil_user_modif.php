@@ -77,7 +77,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'modificationProfil')
                 </select>
               </div>
               <br>
-            <div class="form-group col-md-4">
+            <div class="form-group">
                 <label for="inputState">Adresse</label>
                 <input type="text" class="form-control" id="adresse" name="adresse" value="'; if(isset($profil_actuel['adresse'])) echo $profil_actuel['adresse']; echo '">
             </div>
@@ -87,7 +87,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'modificationProfil')
                 <input type="text" class="form-control" id="codePostal" name="codePostal" value="'; if(isset($profil_actuel['codePostal'])) echo $profil_actuel['codePostal']; echo '">
             </div>
             <br>
-            <div class="form-group col-md-4">
+            <div class="form-group">
                 <label for="inputState">Ville</label>
                 <input type="text" class="form-control" id="ville" name="ville" value="'; if(isset($profil_actuel['ville'])) echo $profil_actuel['ville']; echo '">
             </div>
@@ -103,13 +103,13 @@ if(isset($_GET['action']) && $_GET['action'] == 'modificationProfil')
                   </select>
             </div>
             <br>
-            <div class="form-group col-md-4">
+            <div class="form-group">
                 <label for="inputState">Mail</label>
                 <input type="text" class="form-control" id="mail" name="mail" value="'; if(isset($profil_actuel['mail'])) echo $profil_actuel['mail']; echo '">
             </div>
             <br>
             <br>
-            <div class="form-group col-md-4">
+            <div class="form-group">
                 <label for="inputState">Mot de passe</label>
                 <input type="text" class="form-control" id="mot_de_passe" name="mot_de_passe" value="'; if(isset($profil_actuel['mot_de_passe'])) echo $profil_actuel['mot_de_passe']; echo '">
             </div>
