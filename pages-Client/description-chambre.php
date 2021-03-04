@@ -72,6 +72,9 @@ if($donnees->rowCount() <= 0)
                         </div>
                         <div class="modal-body">
                             <p>Pour réserver, appelez au  04 67 50 88 00</p>
+                            
+                            <a class="nav-link text-uppercase text-expanded" href="'. RACINE_SITE .'pages-Client/inscription.php">Inscrivez-vous !</a>
+                           
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>

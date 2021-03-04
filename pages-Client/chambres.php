@@ -23,12 +23,21 @@ echo '<div style="align-items:center;">';
           <h5 class="card-title">' . $chambres['Nom_chambre'] . '</h5>
           <p class="card-text"><small class="text-muted">' . $chambres["prix"] . '€</small></p>
           <p class="card-text">Voici votre ' . $chambres["Nom_chambre"] . '</p>
-          <a href="description-chambre.php?id_chambre='. $chambres['id_chambre'] .'" class="btn btn-primary">En savoir plus</a>
-          <a href="reservation.php?id_chambre='. $chambres['id_chambre'] .'" class="btn btn-primary">Réservez</a>
-          </div>
-        </div>
-      </div>
-    </div> </div> ';
+          <a href="description-chambre.php?id_chambre='. $chambres['id_chambre'] .'" class="btn btn-primary">En savoir plus</a>';
+          if(isset($_GET['id_client']))
+          {
+            $resultat = $bdd->query("SELECT * FROM clients WHERE id_client = '$_GET[id_client]'");
+              if($resultat->rowCount() != 0)
+              {
+                $client = $resultat->fetch();
+                echo '<a href="reservation.php?id_chambre='. $chambres['id_chambre'] .'&id_client='. $client['id_client'] .'" class="btn btn-primary">Réservez</a>';
+              }
+            }
+
+               echo' </div>
+              </div>
+            </div>
+          </div> </div> ';
              
     }
     echo' </div> ';

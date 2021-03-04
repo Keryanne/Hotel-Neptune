@@ -5,17 +5,16 @@ require_once("../init/haut-page.php");
 
 <head><link rel="stylesheet" href="<?php echo RACINE_SITE; ?>pages-Client/css/reservation.css"></head>
 <?php
-//On teste si le formulaire a été soumis
-	if ((isset($_POST['civilite'])) && (isset($_POST['nom']))	&& (isset($_POST['prenom'])) && (isset($_POST['mail'])) && (isset($_POST['mot_de_passe']) ))
-	
-	//on teste si tous les champs du formulaire sont remplits
-	if ((!empty($_POST['civilite'])) && (!empty($_POST['nom']))	&& (!empty($_POST['prenom'])) && (!empty($_POST['mail'])) && (!empty($_POST['mot_de_passe'])))
+if(!internauteEstConnecte())
+{
+	header("location:connexion.php");
+}
 ?>
 
 <?php
 if ($_POST)
 {
-	$planning = executeRequete("SELECT * FROM planning WHERE jour='$_POST[jour]'");
+	$planning = executeRequete("SELECT * FROM planning,clients,chambres WHERE jour='$_POST[jour]' AND planning.client_id = clients.id_client AND planning.id = chambres.id_chambre");
     if($planning->rowCount() > 0)
 	{
         echo "<div class='erreur'>Cette date est indisponible. Veuillez en sélectionner une autre.</div>";
@@ -28,8 +27,8 @@ if ($_POST)
         {
             $_POST[$indice] = htmlEntities(addSlashes($valeur));
 		}
-		
-		executeRequete("INSERT INTO planning (`chambre_id`, `jour`, `acompte`, `paye`, `client_id`) VALUES('$_POST[chambre_id]','$_POST[jour]','$_POST[acompte]','$_POST[paye]','$_POST[client_id]')");
+
+			executeRequete("INSERT INTO planning (id, jour, acompte, paye, client_id) VALUES('$_GET[id_chambre]', '$_POST[jour]','$_POST[acompte]','$_POST[paye]','$_GET[id_client]')");
 		
 		echo "<div class='validation'>Votre réservation a bien été prise en compte.</div>";
 	}
@@ -69,18 +68,18 @@ if ($_POST)
 	</div>
 
 
-	<form action="http://localhost/Projet-PHP/pages-Client/chambres.php" class="container1 booking" name="booking">
-		
+	<form method ="post" action="" enctype="multipart/form-data" class="container1 booking" name="booking" style="height:auto;">
+		<div>
 		<div class="dates" data-type="none">
 			<label for="checkin">Date d'arrivée</label>
 			<div class="input-text">
-				<input type="datetime" name="jour" value="9 Juin, 2021" id="checkin" readonly>
+				<input type="datetime" name="jour" value="2021-03-03 00:00:00" id="checkin" readonly>
 				<div class="icon pop-up"></div>
 			</div>
 
 			<label for="checkout">Date de départ</label>
 			<div class="input-text">
-				<input type="datetime" name="jour" value="16 Juin, 2021" id="checkout" readonly>
+				<input type="datetime" name="jour" value="2021-03-04 00:00:00" id="checkout" readonly>
 				<div class="icon pop-up"></div>
 			</div>
 		</div>
@@ -104,7 +103,34 @@ if ($_POST)
 			</li>
 		</ul>
 
-		<button class="button-big" type="submit" id="search"><div class="icon"></div>Sélectionner une chambre</button>
+		<ul class="persons">
+			<li>
+				<label>Acompte</label>
+				<div class="input-text">
+					<select name="acompte">
+						<option value="1"selected="selected">Oui</option>
+						<option value="0">Non</option>
+					</select>
+					<div class="icon"></div>
+				</div>
+			</li>
+		</ul>
+
+		<ul class="persons">
+			<li>
+				<label>Payement</label>
+				<div class="input-text">
+					<select name="paye">
+						<option value="0"selected="selected">Sur place</option>
+					</select>
+					<div class="icon"></div>
+				</div>
+			</li>
+		</ul>
+
+		<button class="button-big" type="submit" id="search" style="margin-bottom:10px;"><div class="icon"></div>Valider mon choix</button>
+		</div>
+		
 	</form>
 
 <?php 
@@ -132,7 +158,7 @@ $('#add_event').on('click', function(){
     $('#overlay').fadeOut(300);
  	$('.calendar').fadeOut(300);
  	let id=($('.dates').data()).type;
- 	$('#' + id).val(value+" Mai, 2021");
+ 	$('#' + id).val("2021-05-" +value+ " 00:00:00");
 }); 
 
 });	</script>

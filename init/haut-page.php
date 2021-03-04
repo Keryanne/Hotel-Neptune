@@ -42,12 +42,30 @@
               <span class="sr-only"></span>
             </a>
           </li>
+          
+<?php
+  if(isset($_GET['id_client']))
+  {
+   $resultat = $bdd->query("SELECT * FROM clients WHERE id_client = '$_GET[id_client]'");
+    if($resultat->rowCount() != 0)
+    {
+      $client = $resultat->fetch();
+      ?>
           <li class="nav-item px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="<?php echo RACINE_SITE; ?>pages-Client/chambres.php?id_client=<?php echo $client['id_client']; ?>">Chambres</a>
+          </li>
+          <?php
+    }
+  }else 
+    {
+      ?>
+     <li class="nav-item px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="<?php echo RACINE_SITE; ?>pages-Client/chambres.php">Chambres</a>
           </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="<?php echo RACINE_SITE; ?>pages-Client/reservation.php">Réservations</a>
-          </li>
+          <?php
+    }
+
+    ?>
           <li class="nav-item px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="<?php echo RACINE_SITE; ?>pages-Client/inscription.php">Inscription</a>
           </li>
