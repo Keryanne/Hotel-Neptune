@@ -12,7 +12,7 @@ catch(Exception $e)
 }
 
 
-define("RACINE_SITE","/Projet-PHP/");
+define("RACINE_SITE","/Hotel-Neptune/");
 
 
 require_once("fonction.php");

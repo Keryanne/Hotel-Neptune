@@ -6,7 +6,7 @@ if ($mysqli->connect_error) die('Un problème est survenu lors de la tentative d
 
 
  
-define("RACINE_SITE","/Projet-PHP/");
+define("RACINE_SITE","/Hotel-Neptune/");
 
 
 require_once("fonction.php");
